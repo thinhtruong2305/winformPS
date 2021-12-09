@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace PetShopWinform
 {
-    public partial class Form1 : Form
+    public partial class FormLoading : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
@@ -25,7 +25,7 @@ namespace PetShopWinform
         int nHeightEllipse
         );
 
-        public Form1()
+        public FormLoading()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));

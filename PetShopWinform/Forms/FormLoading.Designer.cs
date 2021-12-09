@@ -1,7 +1,7 @@
 ﻿
 namespace PetShopWinform
 {
-    partial class Form1
+    partial class FormLoading
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace PetShopWinform
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLoading));
             this.progressbar1 = new CircularProgressBar.CircularProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();

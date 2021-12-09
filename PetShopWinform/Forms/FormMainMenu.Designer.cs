@@ -157,7 +157,7 @@ namespace PetShopWinform
             this.label1.ForeColor = System.Drawing.Color.LightGray;
             this.label1.Location = new System.Drawing.Point(70, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 25);
+            this.label1.Size = new System.Drawing.Size(75, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pet Shop";
             // 
@@ -192,7 +192,7 @@ namespace PetShopWinform
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(409, 27);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(99, 32);
+            this.lblTitle.Size = new System.Drawing.Size(78, 26);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
             // 
@@ -206,7 +206,7 @@ namespace PetShopWinform
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 584);
             this.Controls.Add(this.panelDesktopPane);
@@ -214,6 +214,7 @@ namespace PetShopWinform
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormMainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMenu";
             this.panelMenu.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);

@@ -31,9 +31,7 @@ namespace PetShopWinform
             {
                 this.Hide();
                 new FormMainMenu().ShowDialog();
-
-
-
+                this.Show();
             }
             else
             {
