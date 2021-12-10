@@ -23,7 +23,7 @@ namespace PetShopWinform.Model
         public int Id { get; set; }
         public Nullable<int> Category { get; set; }
         public string Name { get; set; }
-        public double Price { get; set; }
+        public decimal Price { get; set; }
         public Nullable<int> Quantity { get; set; }
     
         public virtual Category Category1 { get; set; }
