@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PetShopWinform.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace PetShopWinform.Forms
 {
     public partial class Products : Form
     {
+       
+        PetshopWinformEntities db = new PetshopWinformEntities();
         public Products()
         {
             InitializeComponent();
@@ -38,8 +41,105 @@ namespace PetShopWinform.Forms
         private void Products_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            LoadData();
         }
 
-       
+        private void LoadData()
+        {
+            dgvProductList.DataSource = db.Products.ToList();
+            cbCategory.DataSource = db.Categories.ToList();
+            cbCategory.DisplayMember = "Name";
+            cbCategory.ValueMember = "Id";
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Product pr = new Product()
+            {
+                Name = txtName.Text,
+                Category = Convert.ToInt32(cbCategory.SelectedValue),
+                Quantity = Convert.ToInt32(txtQuantity.Text),
+                Price = Convert.ToDecimal(txtPrice.Text)
+            };
+            db.Products.Add(pr);
+            db.SaveChanges();
+            LoadData();
+            MessageBox.Show("Add Successfully!");
+            /*Sach sach = new Sach()
+            {
+                TenSach = txtTenSach.Text,
+                MaNXB = Convert.ToInt32(cbNXB.SelectedValue),
+                MaTG = Convert.ToInt32(cbTaGia.SelectedValue),
+                GhiChu = txtGhiChu.Text,
+                Gia = Convert.ToInt32(txtGia.Text),
+                NgayPhatHanh = dtNgayPhatHanh.Value,
+                SoLuong = Convert.ToInt32(txtSL.Text)
+
+            };
+            db.Saches.Add(sach);
+            db.SaveChanges();
+            LoadData();*/
+        }
+
+        private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = Convert.ToInt32(dgvProductList.Rows[e.RowIndex].Cells[0].Value.ToString());
+
+            Product pr = db.Products.Where(x => x.Id == id).First();
+
+            txtId.Text = pr.Id.ToString();
+            txtName.Text = pr.Name;
+            cbCategory.SelectedValue = pr.Category;
+            txtQuantity.Text = pr.Quantity.ToString();
+            txtPrice.Text = pr.Price.ToString();
+            
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtId.Text);
+            Product pr = db.Products.Where(x => x.Id == id).First();
+
+            pr.Name = txtName.Text;
+            pr.Category = Convert.ToInt32(cbCategory.SelectedValue);
+            pr.Quantity = Convert.ToInt32(txtQuantity.Text);
+            pr.Price = Convert.ToDecimal(txtPrice.Text);
+
+            db.SaveChanges();
+            LoadData();
+            MessageBox.Show("Edit Successfully!");
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+           
+            if (MessageBox.Show("Are you sure to Delete?", "EF CRUP Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                using (PetshopWinformEntities db = new PetshopWinformEntities())
+                {
+                    int id = Convert.ToInt32(dgvProductList.CurrentRow.Cells[0].Value);
+                    Product pr = db.Products.Where(x => x.Id == id).First();
+                    db.Products.Remove(pr);
+                    db.SaveChanges();
+                    LoadData();
+                    MessageBox.Show("Delete Successfully!");
+                }
+            }
+        }
+
+        
+
+        private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Product pr = new Product();
+            var results = db.Products.Where(p => p.Name.Contains(txtSearch.Text));
+            dgvProductList.DataSource = results.ToList();
+        }
+
+        private void btnReLoad_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
     }
 }
