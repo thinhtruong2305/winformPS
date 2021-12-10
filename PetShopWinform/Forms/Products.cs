@@ -65,20 +65,7 @@ namespace PetShopWinform.Forms
             db.SaveChanges();
             LoadData();
             MessageBox.Show("Add Successfully!");
-            /*Sach sach = new Sach()
-            {
-                TenSach = txtTenSach.Text,
-                MaNXB = Convert.ToInt32(cbNXB.SelectedValue),
-                MaTG = Convert.ToInt32(cbTaGia.SelectedValue),
-                GhiChu = txtGhiChu.Text,
-                Gia = Convert.ToInt32(txtGia.Text),
-                NgayPhatHanh = dtNgayPhatHanh.Value,
-                SoLuong = Convert.ToInt32(txtSL.Text)
-
-            };
-            db.Saches.Add(sach);
-            db.SaveChanges();
-            LoadData();*/
+           
         }
 
         private void dgvProductList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
