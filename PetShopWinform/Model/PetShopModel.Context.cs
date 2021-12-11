@@ -31,5 +31,6 @@ namespace PetShopWinform.Model
         public virtual DbSet<OrderInfo> OrderInfoes { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }

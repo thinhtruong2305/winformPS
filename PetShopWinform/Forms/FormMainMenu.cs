@@ -128,5 +128,10 @@ namespace PetShopWinform
             currentButton = null;
             btnCloseChildForm.Visible = false;
         }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.Customers(), sender);
+        }
     }
 }

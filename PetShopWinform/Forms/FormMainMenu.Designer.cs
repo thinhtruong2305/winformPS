@@ -41,6 +41,7 @@ namespace PetShopWinform
             this.btnCloseChildForm = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelDesktopPane = new System.Windows.Forms.Panel();
+            this.btnCustomers = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelTitleBar.SuspendLayout();
@@ -49,6 +50,7 @@ namespace PetShopWinform
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
+            this.panelMenu.Controls.Add(this.btnCustomers);
             this.panelMenu.Controls.Add(this.btnDashboard);
             this.panelMenu.Controls.Add(this.btnBilling);
             this.panelMenu.Controls.Add(this.btnAdmin);
@@ -157,7 +159,7 @@ namespace PetShopWinform
             this.label1.ForeColor = System.Drawing.Color.LightGray;
             this.label1.Location = new System.Drawing.Point(70, 33);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 20);
+            this.label1.Size = new System.Drawing.Size(93, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pet Shop";
             // 
@@ -192,7 +194,7 @@ namespace PetShopWinform
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(409, 27);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(78, 26);
+            this.lblTitle.Size = new System.Drawing.Size(99, 32);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "HOME";
             // 
@@ -204,9 +206,29 @@ namespace PetShopWinform
             this.panelDesktopPane.Size = new System.Drawing.Size(924, 504);
             this.panelDesktopPane.TabIndex = 2;
             // 
+            // btnCustomers
+            // 
+            this.btnCustomers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCustomers.FlatAppearance.BorderSize = 0;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomers.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnCustomers.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomers.Image")));
+            this.btnCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.Location = new System.Drawing.Point(0, 320);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
+            this.btnCustomers.Size = new System.Drawing.Size(248, 60);
+            this.btnCustomers.TabIndex = 6;
+            this.btnCustomers.Text = "Customer";
+            this.btnCustomers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
+            // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1172, 584);
             this.Controls.Add(this.panelDesktopPane);
@@ -238,5 +260,6 @@ namespace PetShopWinform
         private System.Windows.Forms.Panel panelDesktopPane;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnCloseChildForm;
+        private System.Windows.Forms.Button btnCustomers;
     }
 }

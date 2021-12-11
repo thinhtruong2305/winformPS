@@ -12,23 +12,21 @@ namespace PetShopWinform.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class Oder
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Oder()
+        public Customer()
         {
-            this.OrderInfoes = new HashSet<OrderInfo>();
+            this.Oders = new HashSet<Oder>();
         }
     
         public int Id { get; set; }
-        public Nullable<System.DateTime> DateCreate { get; set; }
-        public string Status { get; set; }
-        public Nullable<int> Account { get; set; }
-        public int Customer { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Phone { get; set; }
+        public Nullable<bool> Vip { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderInfo> OrderInfoes { get; set; }
-        public virtual Account Account1 { get; set; }
-        public virtual Customer Customer1 { get; set; }
+        public virtual ICollection<Oder> Oders { get; set; }
     }
 }
