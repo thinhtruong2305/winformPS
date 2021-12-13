@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\Menu.cs" />
+    <Compile Include="DAO\Statistical_DAO.cs" />
     <Compile Include="Forms\Customers.cs">
       <SubType>Form</SubType>
     </Compile>
