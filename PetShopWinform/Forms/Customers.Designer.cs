@@ -31,6 +31,7 @@ namespace PetShopWinform.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customers));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.rtxtAddress = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@ namespace PetShopWinform.Forms
             this.btnSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnReLoad = new System.Windows.Forms.PictureBox();
-            this.rtxtAddress = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomerList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSearch)).BeginInit();
@@ -76,6 +76,16 @@ namespace PetShopWinform.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1165, 150);
             this.panel1.TabIndex = 1;
+            // 
+            // rtxtAddress
+            // 
+            this.rtxtAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.rtxtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxtAddress.Location = new System.Drawing.Point(495, 89);
+            this.rtxtAddress.Name = "rtxtAddress";
+            this.rtxtAddress.Size = new System.Drawing.Size(179, 39);
+            this.rtxtAddress.TabIndex = 5;
+            this.rtxtAddress.Text = "";
             // 
             // label5
             // 
@@ -230,6 +240,7 @@ namespace PetShopWinform.Forms
             // 
             // dgvCustomerList
             // 
+            this.dgvCustomerList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCustomerList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvCustomerList.Location = new System.Drawing.Point(0, 298);
@@ -283,16 +294,6 @@ namespace PetShopWinform.Forms
             this.btnReLoad.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnReLoad.TabIndex = 11;
             this.btnReLoad.TabStop = false;
-            // 
-            // rtxtAddress
-            // 
-            this.rtxtAddress.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rtxtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtAddress.Location = new System.Drawing.Point(495, 89);
-            this.rtxtAddress.Name = "rtxtAddress";
-            this.rtxtAddress.Size = new System.Drawing.Size(179, 39);
-            this.rtxtAddress.TabIndex = 5;
-            this.rtxtAddress.Text = "";
             // 
             // Customers
             // 

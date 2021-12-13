@@ -67,26 +67,37 @@ namespace PetShopWinform.Forms
             {
                 if (MessageBox.Show("Are you sure to Add?", "EF CRUP Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-
-                    pr.Name = txtName.Text.Trim();
+                    Product pr = new Product()
+                    {
+                        Name = txtName.Text,
+                        Category = Convert.ToInt32(cbCategory.SelectedValue),
+                        Quantity = Convert.ToInt32(txtQuantity.Text),
+                        Price = Convert.ToDecimal(txtPrice.Text)
+                    };
+                    db.Products.Add(pr);
+                    LoadData();
+                    MessageBox.Show("Submit Successfully!");
+                    Clear();
+                    //-----------
+                    /*pr.Name = txtName.Text;
                     pr.Category = Convert.ToInt32(cbCategory.SelectedValue);
                     pr.Quantity = Convert.ToInt32(txtQuantity.Text);
                     pr.Price = Convert.ToDecimal(txtPrice.Text);
 
                     db.Products.Add(pr);
-                    /* db.Entry(pr).State = EntityState.Modified;*/
+                    *//* db.Entry(pr).State = EntityState.Modified;*//*
                     db.SaveChanges();
 
-                    Clear();
+
                     LoadData();
                     MessageBox.Show("Submit Successfully!");
-
-
-
+                    Clear();*/
                 }
+
             }
-           
-           
+
+
+
         }
 
         
@@ -97,23 +108,21 @@ namespace PetShopWinform.Forms
             {
                 if (MessageBox.Show("Are you sure to Edit?", "EF CRUP Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-
-
                     int id = Convert.ToInt32(txtId.Text);
-                    Product pr = db.Products.Where(x => x.Id == id).FirstOrDefault();
+                    Product pr = db.Products.Where(x => x.Id == id).First();
 
-                    pr.Name = txtName.Text;
+                    pr.Name = txtName.Text.Trim();
                     pr.Category = Convert.ToInt32(cbCategory.SelectedValue);
                     pr.Quantity = Convert.ToInt32(txtQuantity.Text);
                     pr.Price = Convert.ToDecimal(txtPrice.Text);
 
 
                     db.SaveChanges();
-                    Clear();
+                    
                     LoadData();
 
                     MessageBox.Show("Submit Successfully!");
-
+                    Clear();
                 }
             }
 
@@ -124,22 +133,22 @@ namespace PetShopWinform.Forms
            
             if (MessageBox.Show("Are you sure to Delete?", "EF CRUP Operation", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
+               
+                int id = Convert.ToInt32(dgvProductList.CurrentRow.Cells[0].Value);
+                Product pr = db.Products.Where(x => x.Id == id).First();
+
+                db.Products.Remove(pr);
                 
-                
-               int id = Convert.ToInt32(dgvProductList.CurrentRow.Cells[0].Value);
-               Product pr = db.Products.Where(x => x.Id == id).FirstOrDefault();
-               db.Products.Remove(pr);
-               db.SaveChanges();
-               LoadData();
-                    
-               MessageBox.Show("Submit Successfully!");
-                    
-                    
-                
+                db.SaveChanges();
+                LoadData();
+
+                MessageBox.Show("Submit Successfully!");
+                Clear();
+
             }
         }
+   
 
-       
 
         private void btnReLoad_Click(object sender, EventArgs e)
         {
@@ -149,9 +158,9 @@ namespace PetShopWinform.Forms
 
         private void dgvProductList_DoubleClick(object sender, EventArgs e)
         {
-            if (dgvProductList.CurrentRow.Index != 1)
+            if (dgvProductList.CurrentRow.Index != -1)
             {
-                var id = Convert.ToInt32(dgvProductList.CurrentRow.Cells["Id"].Value);
+                var id = Convert.ToInt32(dgvProductList.CurrentRow.Cells[0].Value);
                     Product pr = db.Products.Where(x => x.Id == id).FirstOrDefault();
                     txtId.Text = pr.Id.ToString();
                     txtName.Text = pr.Name;
@@ -226,6 +235,10 @@ namespace PetShopWinform.Forms
             dgvProductList.DataSource = results.ToList();
         }
 
-       
+
+        
+
+
+
     }
 }
