@@ -14,7 +14,7 @@ namespace PetShopWinform.Forms
 {
     public partial class Products : Form
     {
-       Product pr = new Product();
+        Product pr = new Product();
         PetshopWinformEntities db = new PetshopWinformEntities();
         public Products()
         {
@@ -75,6 +75,7 @@ namespace PetShopWinform.Forms
                         Price = Convert.ToDecimal(txtPrice.Text)
                     };
                     db.Products.Add(pr);
+                    db.SaveChanges();
                     LoadData();
                     MessageBox.Show("Submit Successfully!");
                     Clear();
