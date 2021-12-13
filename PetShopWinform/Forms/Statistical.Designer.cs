@@ -49,10 +49,10 @@ namespace PetShopWinform.Forms
             this.dateTimePickerTo.CalendarTitleBackColor = System.Drawing.Color.OrangeRed;
             this.dateTimePickerTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerTo.Location = new System.Drawing.Point(275, 35);
-            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerTo.Location = new System.Drawing.Point(206, 28);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
-            this.dateTimePickerTo.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePickerTo.Size = new System.Drawing.Size(104, 26);
             this.dateTimePickerTo.TabIndex = 10;
             this.dateTimePickerTo.Value = new System.DateTime(2021, 10, 29, 21, 54, 57, 0);
             // 
@@ -61,10 +61,10 @@ namespace PetShopWinform.Forms
             this.dateTimePickerFrom.CalendarTitleBackColor = System.Drawing.Color.OrangeRed;
             this.dateTimePickerFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFrom.Location = new System.Drawing.Point(81, 35);
-            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePickerFrom.Location = new System.Drawing.Point(61, 28);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
-            this.dateTimePickerFrom.Size = new System.Drawing.Size(137, 30);
+            this.dateTimePickerFrom.Size = new System.Drawing.Size(104, 26);
             this.dateTimePickerFrom.TabIndex = 11;
             this.dateTimePickerFrom.Value = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             // 
@@ -72,9 +72,10 @@ namespace PetShopWinform.Forms
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(18, 37);
+            this.label1.Location = new System.Drawing.Point(14, 30);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 25);
+            this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = "From";
             // 
@@ -82,9 +83,10 @@ namespace PetShopWinform.Forms
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(233, 37);
+            this.label2.Location = new System.Drawing.Point(175, 30);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 25);
+            this.label2.Size = new System.Drawing.Size(27, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "To";
             // 
@@ -93,23 +95,24 @@ namespace PetShopWinform.Forms
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(506, 24);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReset.Location = new System.Drawing.Point(380, 20);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(149, 50);
+            this.btnReset.Size = new System.Drawing.Size(112, 41);
             this.btnReset.TabIndex = 13;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnExcel
             // 
             this.btnExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcel.Location = new System.Drawing.Point(677, 24);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExcel.Location = new System.Drawing.Point(508, 20);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(149, 50);
+            this.btnExcel.Size = new System.Drawing.Size(112, 41);
             this.btnExcel.TabIndex = 14;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
@@ -119,20 +122,22 @@ namespace PetShopWinform.Forms
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 140);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 114);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(878, 398);
+            this.dataGridView1.Size = new System.Drawing.Size(658, 323);
             this.dataGridView1.TabIndex = 15;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(788, 97);
+            this.pictureBox1.Location = new System.Drawing.Point(591, 79);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 29);
+            this.pictureBox1.Size = new System.Drawing.Size(28, 24);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
@@ -140,19 +145,20 @@ namespace PetShopWinform.Forms
             // 
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFind.Location = new System.Drawing.Point(578, 91);
+            this.txtFind.Location = new System.Drawing.Point(434, 74);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtFind.Multiline = true;
             this.txtFind.Name = "txtFind";
             this.txtFind.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFind.Size = new System.Drawing.Size(204, 43);
+            this.txtFind.Size = new System.Drawing.Size(154, 36);
             this.txtFind.TabIndex = 16;
             this.txtFind.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // Statistical
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 538);
+            this.ClientSize = new System.Drawing.Size(658, 437);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dataGridView1);
@@ -162,6 +168,7 @@ namespace PetShopWinform.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Statistical";
             this.Text = "Statistical";
             this.Load += new System.EventHandler(this.Statistical_Load);
