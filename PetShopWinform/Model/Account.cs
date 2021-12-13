@@ -14,10 +14,19 @@ namespace PetShopWinform.Model
     
     public partial class Account
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Account()
+        {
+            this.Oders = new HashSet<Oder>();
+        }
+    
         public int Id { get; set; }
         public string UserName { get; set; }
         public string DisplayName { get; set; }
         public string PassWord { get; set; }
         public int Role { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Oder> Oders { get; set; }
     }
 }

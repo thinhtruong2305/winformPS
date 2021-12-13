@@ -22,11 +22,23 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="Oder">
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Vip" Type="bit" />
+        </EntityType>
+        <EntityType Name="Oder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="int" />
+          <Property Name="Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateCreate" Type="datetime" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -96,9 +108,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Oder_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="PetshopWinformModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Oder" EntityType="Self.Oder" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OrderInfo" EntityType="Self.OrderInfo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -115,6 +152,14 @@
             <End Role="Category" EntitySet="Category" />
             <End Role="Product" EntitySet="Product" />
           </AssociationSet>
+          <AssociationSet Name="FK_Customer" Association="Self.FK_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Oder" EntitySet="Oder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Oder_Account" Association="Self.FK_Oder_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Oder" EntitySet="Oder" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -129,6 +174,7 @@
           <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="PassWord" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Role" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Oders" Relationship="PetshopWinformModel.FK_Oder_Account" FromRole="Account" ToRole="Oder" />
         </EntityType>
         <EntityType Name="Category">
           <Key>
@@ -146,6 +192,10 @@
           <Property Name="DateCreate" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="OrderInfoes" Relationship="Self.FK__OrderInfo__Total__32E0915F" FromRole="Oder" ToRole="OrderInfo" />
+          <Property Name="Account" Type="Int32" />
+          <Property Name="Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Account1" Relationship="PetshopWinformModel.FK_Oder_Account" FromRole="Oder" ToRole="Account" />
+          <NavigationProperty Name="Customer1" Relationship="PetshopWinformModel.FK_Customer" FromRole="Oder" ToRole="Customer" />
         </EntityType>
         <EntityType Name="OrderInfo">
           <Key>
@@ -166,7 +216,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Category" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Decimal" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="Quantity" Type="Int32" />
           <NavigationProperty Name="Category1" Relationship="Self.FK__Product__Quantit__2C3393D0" FromRole="Product" ToRole="Category" />
           <NavigationProperty Name="OrderInfoes" Relationship="Self.FK__OrderInfo__IdPro__33D4B598" FromRole="Product" ToRole="OrderInfo" />
@@ -236,7 +286,51 @@
             <End Role="Product" EntitySet="Products" />
             <End Role="OrderInfo" EntitySet="OrderInfoes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Oder_Account" Association="PetshopWinformModel.FK_Oder_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Oder" EntitySet="Oders" />
+          </AssociationSet>
+          <EntitySet Name="Customers" EntityType="PetshopWinformModel.Customer" />
+          <AssociationSet Name="FK_Customer" Association="PetshopWinformModel.FK_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Oder" EntitySet="Oders" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_Oder_Account">
+          <End Type="PetshopWinformModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="PetshopWinformModel.Oder" Role="Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="Account" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vip" Type="Boolean" />
+          <NavigationProperty Name="Oders" Relationship="PetshopWinformModel.FK_Customer" FromRole="Customer" ToRole="Oder" />
+        </EntityType>
+        <Association Name="FK_Customer">
+          <End Type="PetshopWinformModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="PetshopWinformModel.Oder" Role="Oder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Oder">
+              <PropertyRef Name="Customer" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -265,6 +359,8 @@
           <EntitySetMapping Name="Oders">
             <EntityTypeMapping TypeName="PetshopWinformModel.Oder">
               <MappingFragment StoreEntitySet="Oder">
+                <ScalarProperty Name="Customer" ColumnName="Customer" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
@@ -301,6 +397,17 @@
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="PetshopWinformModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Vip" ColumnName="Vip" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
