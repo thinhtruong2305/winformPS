@@ -36,55 +36,37 @@ namespace PetShopWinform.BUS
         }
 
         /// <summary>
-        /// truyền danh sách đã tìm vào dataGridView
+        /// Truyền danh sách đã tìm database đến DataGridView
         /// </summary>
-        /// <param name="view">bảng hiển thị danh sách</param>
-        /// <param name="tuKhoa">Nhập tên khách hàng</param>
+        /// <param name="view">Bảng hiển thị thông tin</param>
+        /// <param name="tuKhoa">Dùng để tìm kiếm theo kiểu String đối chiếu với tên khách hàng</param>
+        /// <returns>boolean để xác nhận tìm thấy hoặc không tìm thấy</returns>
         public bool timHoaDonTheoTen(DataGridView view, String tuKhoa)
         {
             var danhSach = danhSachThongKe.timKiemDanhSachTheoTenKhachHang(tuKhoa);
             if(danhSach != null)
             {
-                try
-                {
-                    view.DataSource = danhSachThongKe.timKiemDanhSachTheoTenKhachHang(tuKhoa);
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                } 
+                view.DataSource = danhSachThongKe.timKiemDanhSachTheoTenKhachHang(tuKhoa);
+                return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         /// <summary>
         /// Truyền danh sách đã tìm vào dataGridView
         /// </summary>
-        /// <param name="view">Bảng hiển thị danh sách</param>
-        /// <param name="tuKhoa">Nhập mã hóa đơn</param>
+        /// <param name="view">Bảng hiển thị thông tin</param>
+        /// <param name="tuKhoa">Dùng để tìm kiếm theo kiểu int đối chiếu với mã hóa đơn</param>
+        /// <returns>boolean để xác nhận tìm thấy hoặc không tìm thấy</returns>
         public bool timHoaDonTheoMaHoaDon(DataGridView view, int tuKhoa)
         {
             var danhSach = danhSachThongKe.timKiemDanhSachTheoMaHoaDon(tuKhoa);
             if (danhSach != null)
             {
-                try
-                {
-                    view.DataSource = danhSachThongKe.timKiemDanhSachTheoMaHoaDon(tuKhoa);
-                    return true;
-                }
-                catch (Exception)
-                {
-                    return false;
-                }
+                view.DataSource = danhSachThongKe.timKiemDanhSachTheoMaHoaDon(tuKhoa);
+                return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

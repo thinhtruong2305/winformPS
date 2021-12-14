@@ -119,6 +119,7 @@ namespace PetShopWinform.Forms
             this.btnExcel.TabIndex = 14;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
+            this.btnExcel.Click += new System.EventHandler(this.btnExcel_Click);
             // 
             // dataGridViewBangHienThi
             // 
@@ -151,12 +152,11 @@ namespace PetShopWinform.Forms
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFind.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtFind.Location = new System.Drawing.Point(309, 74);
+            this.txtFind.Location = new System.Drawing.Point(308, 79);
             this.txtFind.Margin = new System.Windows.Forms.Padding(2);
-            this.txtFind.Multiline = true;
             this.txtFind.Name = "txtFind";
             this.txtFind.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFind.Size = new System.Drawing.Size(279, 36);
+            this.txtFind.Size = new System.Drawing.Size(279, 26);
             this.txtFind.TabIndex = 16;
             this.txtFind.Text = "Nhập mã hóa đơn, tên khách hàng";
             this.txtFind.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

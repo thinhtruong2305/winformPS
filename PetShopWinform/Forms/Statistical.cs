@@ -29,7 +29,7 @@ namespace PetShopWinform.Forms
                 {
                     Button btn = (Button)btns;
                     btn.BackColor = ThemeColor.PrimaryColor;
-                    btn.ForeColor = Color.White;
+                    btn.ForeColor = Color.Black;
                     btn.FlatAppearance.BorderColor = ThemeColor.SecondaryColor;
                 }
             }
@@ -63,14 +63,6 @@ namespace PetShopWinform.Forms
             busThongKe.layDanhSachThongKeTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
         }
 
-        private void txtFind_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (Char)Keys.Enter)
-            {
-                timKiem();
-            }
-        }
-
         private void txtFind_TextChanged(object sender, EventArgs e)
         {
             Statistical_Load(sender, e);
@@ -84,7 +76,34 @@ namespace PetShopWinform.Forms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            timKiem();
+            if (txtFind.Text != "")
+            {
+                char c = Convert.ToChar(txtFind.Text.ElementAt(0));
+                if (c >= 48 && c <= 57)
+                {
+                    if (busThongKe.timHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text)))
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    if (busThongKe.timHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text))
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            else
+                MessageBox.Show("Xin lỗi! Yêu cầu bạn nhập thông tin trước khi tìm kiếm", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void Statistical_Click(object sender, EventArgs e)
@@ -95,36 +114,21 @@ namespace PetShopWinform.Forms
             dateTimePickerTo.Value = DateTime.Now;
         }
 
-        private void timKiem()
-        {
-            char c = Convert.ToChar(txtFind.Text.ElementAt(0));
-            if (c >= 48 && c <= 57)
-            {
-                if(busThongKe.timHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text)))
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            else
-            {
-                if(busThongKe.timHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text))
-                {
-
-                }
-                else
-                {
-                    MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            txtFind.Enabled = false;
-            txtFind.Enabled = true;
-        }
 
         private void dataGridViewBangHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                pictureBox1_Click(sender, e);
+            }
+        }
+
+        private void btnExcel_Click(object sender, EventArgs e)
         {
 
         }
