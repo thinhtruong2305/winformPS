@@ -39,15 +39,92 @@ namespace PetShopWinform.Forms
 
         private void load_data()
         {
-            busThongKe.layDanhSachThongKe(dataGridView1);
+            busThongKe.layDanhSachThongKe(dataGridViewBangHienThi);
         }
 
         private void Statistical_Load(object sender, EventArgs e)
         {
             LoadTheme();
+            load_data();
         }
 
         private void btnReset_Click(object sender, EventArgs e)
+        {
+            load_data();
+        }
+
+        private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
+        {
+            busThongKe.layDanhSachThongKeTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+        }
+
+        private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
+        {
+            busThongKe.layDanhSachThongKeTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+        }
+
+        private void txtFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (Char)Keys.Enter)
+            {
+                timKiem();
+            }
+        }
+
+        private void txtFind_TextChanged(object sender, EventArgs e)
+        {
+            Statistical_Load(sender, e);
+        }
+
+        private void txtFind_Click(object sender, EventArgs e)
+        {
+            txtFind.Text = null;
+            txtFind.ForeColor = Color.Black;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            timKiem();
+        }
+
+        private void Statistical_Click(object sender, EventArgs e)
+        {
+            txtFind.Text = "Nhập mã hóa đơn, tên khách hàng";
+            txtFind.ForeColor = Color.DarkGray;
+            dateTimePickerFrom.Value = DateTime.Now;
+            dateTimePickerTo.Value = DateTime.Now;
+        }
+
+        private void timKiem()
+        {
+            char c = Convert.ToChar(txtFind.Text.ElementAt(0));
+            if (c >= 48 && c <= 57)
+            {
+                if(busThongKe.timHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text)))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                if(busThongKe.timHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text))
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            txtFind.Enabled = false;
+            txtFind.Enabled = true;
+        }
+
+        private void dataGridViewBangHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

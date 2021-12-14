@@ -36,10 +36,10 @@ namespace PetShopWinform.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewBangHienThi = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBangHienThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,14 +47,16 @@ namespace PetShopWinform.Forms
             // 
             this.dateTimePickerTo.CalendarForeColor = System.Drawing.Color.Brown;
             this.dateTimePickerTo.CalendarTitleBackColor = System.Drawing.Color.OrangeRed;
+            this.dateTimePickerTo.CustomFormat = "";
             this.dateTimePickerTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerTo.Location = new System.Drawing.Point(206, 28);
-            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
             this.dateTimePickerTo.Size = new System.Drawing.Size(104, 26);
             this.dateTimePickerTo.TabIndex = 10;
-            this.dateTimePickerTo.Value = new System.DateTime(2021, 10, 29, 21, 54, 57, 0);
+            this.dateTimePickerTo.Value = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
+            this.dateTimePickerTo.ValueChanged += new System.EventHandler(this.dateTimePickerTo_ValueChanged);
             // 
             // dateTimePickerFrom
             // 
@@ -62,11 +64,12 @@ namespace PetShopWinform.Forms
             this.dateTimePickerFrom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerFrom.Location = new System.Drawing.Point(61, 28);
-            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePickerFrom.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerFrom.Name = "dateTimePickerFrom";
             this.dateTimePickerFrom.Size = new System.Drawing.Size(104, 26);
             this.dateTimePickerFrom.TabIndex = 11;
-            this.dateTimePickerFrom.Value = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerFrom.Value = new System.DateTime(2021, 12, 14, 0, 0, 0, 0);
+            this.dateTimePickerFrom.ValueChanged += new System.EventHandler(this.dateTimePickerFrom_ValueChanged);
             // 
             // label1
             // 
@@ -96,7 +99,7 @@ namespace PetShopWinform.Forms
             this.btnReset.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReset.Location = new System.Drawing.Point(380, 20);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(2);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(112, 41);
             this.btnReset.TabIndex = 13;
@@ -110,49 +113,56 @@ namespace PetShopWinform.Forms
             this.btnExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExcel.Location = new System.Drawing.Point(508, 20);
-            this.btnExcel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExcel.Margin = new System.Windows.Forms.Padding(2);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(112, 41);
             this.btnExcel.TabIndex = 14;
             this.btnExcel.Text = "Excel";
             this.btnExcel.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // dataGridViewBangHienThi
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 114);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(658, 323);
-            this.dataGridView1.TabIndex = 15;
+            this.dataGridViewBangHienThi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewBangHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewBangHienThi.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridViewBangHienThi.Location = new System.Drawing.Point(0, 114);
+            this.dataGridViewBangHienThi.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridViewBangHienThi.Name = "dataGridViewBangHienThi";
+            this.dataGridViewBangHienThi.RowHeadersWidth = 51;
+            this.dataGridViewBangHienThi.RowTemplate.Height = 24;
+            this.dataGridViewBangHienThi.Size = new System.Drawing.Size(658, 323);
+            this.dataGridViewBangHienThi.TabIndex = 15;
+            this.dataGridViewBangHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBangHienThi_CellClick);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(591, 79);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(28, 24);
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txtFind
             // 
             this.txtFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFind.Location = new System.Drawing.Point(434, 74);
-            this.txtFind.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtFind.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtFind.Location = new System.Drawing.Point(309, 74);
+            this.txtFind.Margin = new System.Windows.Forms.Padding(2);
             this.txtFind.Multiline = true;
             this.txtFind.Name = "txtFind";
             this.txtFind.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFind.Size = new System.Drawing.Size(154, 36);
+            this.txtFind.Size = new System.Drawing.Size(279, 36);
             this.txtFind.TabIndex = 16;
+            this.txtFind.Text = "Nhập mã hóa đơn, tên khách hàng";
             this.txtFind.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFind.Click += new System.EventHandler(this.txtFind_Click);
+            this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
+            this.txtFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFind_KeyPress);
             // 
             // Statistical
             // 
@@ -161,18 +171,19 @@ namespace PetShopWinform.Forms
             this.ClientSize = new System.Drawing.Size(658, 437);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtFind);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewBangHienThi);
             this.Controls.Add(this.btnExcel);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Statistical";
             this.Text = "Statistical";
             this.Load += new System.EventHandler(this.Statistical_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Click += new System.EventHandler(this.Statistical_Click);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBangHienThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -187,7 +198,7 @@ namespace PetShopWinform.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnExcel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewBangHienThi;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtFind;
     }
