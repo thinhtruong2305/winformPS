@@ -47,9 +47,9 @@ namespace PetShopWinform.Forms
             // 
             this.dateTimePickerTo.CalendarForeColor = System.Drawing.Color.Brown;
             this.dateTimePickerTo.CalendarTitleBackColor = System.Drawing.Color.OrangeRed;
-            this.dateTimePickerTo.CustomFormat = "";
+            this.dateTimePickerTo.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerTo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerTo.Location = new System.Drawing.Point(206, 28);
             this.dateTimePickerTo.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePickerTo.Name = "dateTimePickerTo";
@@ -134,6 +134,7 @@ namespace PetShopWinform.Forms
             this.dataGridViewBangHienThi.Size = new System.Drawing.Size(658, 323);
             this.dataGridViewBangHienThi.TabIndex = 15;
             this.dataGridViewBangHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBangHienThi_CellClick);
+            this.dataGridViewBangHienThi.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBangHienThi_CellFormatting);
             // 
             // pictureBox1
             // 
