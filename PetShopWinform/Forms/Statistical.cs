@@ -43,7 +43,7 @@ namespace PetShopWinform.Forms
 
         private void load_data()
         {
-            busThongKe.layDanhSachThongKe(dataGridViewBangHienThi);
+            busThongKe.truyenThongTinHoaDon(dataGridViewBangHienThi);
         }
 
         public void exportToExcel(DataGridView view, String fileInfo)
@@ -52,8 +52,8 @@ namespace PetShopWinform.Forms
             Workbook workbook = app.Workbooks.Add(Type.Missing);
             Worksheet worksheet = null;
             //Định vị sheet
-            worksheet = workbook.Sheets["Sheet1"];
-            worksheet = workbook.ActiveSheet;
+            worksheet = (Worksheet) workbook.Sheets["Sheet1"];
+            worksheet = (Worksheet) workbook.ActiveSheet;
             //Định dạng sheet
             dinhDangWorksheet(worksheet);
             //cái i = 1 là vị trí cell 1 bên excel
@@ -83,7 +83,7 @@ namespace PetShopWinform.Forms
             }
             app.ActiveWorkbook.SaveCopyAs(fileInfo);
             app.ActiveWorkbook.Saved = true;
-            MessageBox.Show("Bạn đã truyền dữ liệu sáng excel thành công", "Thông báo");
+            MessageBox.Show("Bạn đã truyền dữ liệu sang excel thành công", "Thông báo");
         }
 
         //Định dạng
@@ -163,12 +163,12 @@ namespace PetShopWinform.Forms
 
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
         {
-            busThongKe.layDanhSachThongKeTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
         }
 
         private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
         {
-            busThongKe.layDanhSachThongKeTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace PetShopWinform.Forms
                 char c = Convert.ToChar(txtFind.Text.ElementAt(0));
                 if (c >= 48 && c <= 57)
                 {
-                    if (busThongKe.timHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text))){ }
+                    if (busThongKe.truyenThongTinHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text))){ }
                     else
                     {
                         MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -197,7 +197,7 @@ namespace PetShopWinform.Forms
                 }
                 else
                 {
-                    if (busThongKe.timHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text)){ }
+                    if (busThongKe.truyenThongTinHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text)){ }
                     else
                     {
                         MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -216,9 +216,6 @@ namespace PetShopWinform.Forms
 
             txtFind.Enabled = false;
             txtFind.Enabled = true;
-
-            dateTimePickerFrom.Value = DateTime.Now;
-            dateTimePickerTo.Value = DateTime.Now;
         }
 
 
@@ -256,6 +253,12 @@ namespace PetShopWinform.Forms
                     exportToExcel(dataGridViewBangHienThi, saveFileDialog.FileName);
                 }
             }
+        }
+
+        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormChartDoanhThu doanhThu = new FormChartDoanhThu();
+            doanhThu.Show();
         }
     }
 }

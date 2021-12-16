@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PetShopWinform.Model;
+using PetShopWinform.BUS;
 
 namespace PetShopWinform.Forms
 {
     public partial class Statistcal_Info : Form
     {
         private PetshopWinformEntities DBPetShop;
+        private Statistical_BUS busThongKe;
         private int maHoaDon;
         private DateTime ngayTao;
         private int maKhachHang = 0;
@@ -22,12 +24,14 @@ namespace PetShopWinform.Forms
         {
             InitializeComponent();
             DBPetShop = new PetshopWinformEntities();
+            busThongKe = new Statistical_BUS();
         }
 
         public Statistcal_Info(int maHoaDon, DateTime ngayTao)
         {
             InitializeComponent();
             DBPetShop = new PetshopWinformEntities();
+            busThongKe = new Statistical_BUS();
             this.maHoaDon = maHoaDon;
             this.ngayTao = ngayTao;
         }
@@ -36,6 +40,7 @@ namespace PetShopWinform.Forms
         {
             InitializeComponent();
             DBPetShop = new PetshopWinformEntities();
+            busThongKe = new Statistical_BUS();
             this.maHoaDon = maHoaDon;
             this.maKhachHang = maKhachHang;
             this.ngayTao = ngayTao;
@@ -44,15 +49,8 @@ namespace PetShopWinform.Forms
         //truyền và xử lý dữ liệu
         private void load_data()
         {
-            if (!maKhachHang.Equals(0))
-            {
-                textBoxTenKhachHang.Text = DBPetShop.Customers.Find(maKhachHang).Name.ToString();
-                textBoxDiaChi.Text = DBPetShop.Customers.Find(maKhachHang).Address.ToString();
-                textBoxDienThoai.Text = DBPetShop.Customers.Find(maKhachHang).Phone.ToString();
-                checkBoxGiamGia.Checked = DBPetShop.Customers.Find(maKhachHang).Vip.Value;
-                textBoxMaKhachHang.Text = maKhachHang.ToString();
-            }
-            dataGridViewDanhMucSanPham.DataSource = DBPetShop.OrderInfoes.Where(h => h.IdOrder.Equals(maHoaDon)).Select(s => new { s.IdOrder, s.Product.Name, s.Quantity, s.Total }).ToList();
+            busThongKe.truyenThongTinKhachHangTheoMaKhachHang(textBoxMaKhachHang, textBoxTenKhachHang, textBoxDiaChi, textBoxDienThoai, checkBoxGiamGia, maKhachHang);
+            busThongKe.truyenThongTinSanPhamTheoMaHoaDon(dataGridViewDanhMucSanPham, maHoaDon);
             textBoxMaHoaDon.Text = maHoaDon.ToString();
             dateTimePickerNgayTao.Value = ngayTao;
         }
