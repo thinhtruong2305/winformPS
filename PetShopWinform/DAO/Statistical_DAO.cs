@@ -129,6 +129,13 @@ namespace PetShopWinform.DAO
         #endregion
 
         #region Sử dụng trên Form ChartDoanhThu
+        /// <summary>
+        /// Dùng để lấy thông tin về doanh thu từ tiền của các hóa đơn
+        /// Lấy các ngày trong tháng
+        /// </summary>
+        /// <param name="ngayBatDau">Mốc bắt đầu để lọc</param>
+        /// <param name="ngayKetThuc">Mốc kết thúc để lọc</param>
+        /// <returns>Danh sách đã lọc</returns>
         public dynamic layDanhSachDoanhThuTheoNgay(DateTime ngayBatDau, DateTime ngayKetThuc)
         {
             var danhSachNgay = (from u in DBPetShop.Oders
@@ -141,6 +148,13 @@ namespace PetShopWinform.DAO
             return danhSachNgay;
         }
 
+        /// <summary>
+        /// Dùng để lấy thông tin về doanh thu từ tiền của các hóa đơn
+        /// Lấy các tháng trong năm
+        /// </summary>
+        /// <param name="thangBatDau">Mốc bắt đầu để lọc</param>
+        /// <param name="thangKetThuc">Mốc kết thúc để lọc</param>
+        /// <returns></returns>
         public dynamic layDanhSachDoanhThuTheoThang(DateTime thangBatDau, DateTime thangKetThuc)
         {
             var danhSachThang = (from u in DBPetShop.Oders
@@ -153,6 +167,13 @@ namespace PetShopWinform.DAO
             return danhSachThang;
         }
 
+        /// <summary>
+        /// Dùng để lấy thông tin về doanh thu từ tiền của các hóa đơn
+        /// Lấy các năm hiện có bán hàng
+        /// </summary>
+        /// <param name="namBatDau">Mốc bắt đầu để lọc</param>
+        /// <param name="namKetThuc">Mốc kết thúc để lọc</param>
+        /// <returns></returns>
         public dynamic layDanhSachDoanhThuTheoNam(DateTime namBatDau, DateTime namKetThuc)
         {
             var danhSachNam = (from u in DBPetShop.Oders

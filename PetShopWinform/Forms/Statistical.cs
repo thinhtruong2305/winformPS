@@ -24,7 +24,7 @@ namespace PetShopWinform.Forms
             busThongKe = new Statistical_BUS();
         }
 
-        //Truyền và xử lí dữ liệu
+        #region Truyền và xử li dữ liệu
         private void LoadTheme()
         {
             foreach (Control btns in this.Controls)
@@ -39,6 +39,7 @@ namespace PetShopWinform.Forms
             }
             label1.ForeColor = ThemeColor.SecondaryColor;
             label2.ForeColor = ThemeColor.PrimaryColor;
+            menuStrip1.ForeColor = ThemeColor.SecondaryColor;
         }
 
         private void load_data()
@@ -73,11 +74,6 @@ namespace PetShopWinform.Forms
                     {
                         //dòng và ô phải cộng 1 vì khởi tạo vòng lặp i và j đều bằng 0 có thể thay đổi nếu muốn
                         app.Cells[i + 2, j + 1] = view.Rows[i].Cells[j].Value.ToString();
-                        if (j + 1 == 4)
-                        {
-                            //định dạng thêm tiền cho các cell excel D và E tương ứng là cell 4 và 5
-                            app.Cells[i + 2, j + 1] = view.Rows[i].Cells[j].Value.ToString() + "000 VND";
-                        }
                     }
                 }
             }
@@ -85,8 +81,9 @@ namespace PetShopWinform.Forms
             app.ActiveWorkbook.Saved = true;
             MessageBox.Show("Bạn đã truyền dữ liệu sang excel thành công", "Thông báo");
         }
+        #endregion
 
-        //Định dạng
+        #region Định dạng
         private void dinhDangHeadertext()
         {
             dataGridViewBangHienThi.Columns[0].HeaderText = "Mã hóa đơn";
@@ -142,25 +139,20 @@ namespace PetShopWinform.Forms
                 e.CellStyle.Format = "dd/MM/yyyy";
             }
         }
+        #endregion
 
-        private void dinhDangForm()
-        {
-            dinhDangHeadertext();
-        }
-        
-        //Bắt sự kiện
+        #region Sự kiện
+
+        #region Load
         private void Statistical_Load(object sender, EventArgs e)
         {
             LoadTheme();
             load_data();
-            dinhDangForm();
+            dinhDangHeadertext();
         }
+        #endregion
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            load_data();
-        }
-
+        #region changed
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
         {
             busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
@@ -175,20 +167,31 @@ namespace PetShopWinform.Forms
         {
             Statistical_Load(sender, e);
         }
+        #endregion
 
+        #region Click
         private void txtFind_Click(object sender, EventArgs e)
         {
             txtFind.Text = null;
             txtFind.ForeColor = Color.Black;
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            load_data();
+        }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (txtFind.Text != "")
             {
+                //Phân biệt số và chữ nếu số sẽ tìm mã hóa đơn, chữ thì tìm tên khách hàng
+                //lấy phần tử đầu tiên ra để xét
                 char c = Convert.ToChar(txtFind.Text.ElementAt(0));
+                //Ở đây có thể dùng char.isDigit
                 if (c >= 48 && c <= 57)
                 {
+                    //Nếu mà tìm thấy thì ở này sẽ là true nếu không thì sẽ hiện một Messagebox
                     if (busThongKe.truyenThongTinHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text))){ }
                     else
                     {
@@ -197,6 +200,7 @@ namespace PetShopWinform.Forms
                 }
                 else
                 {
+                    //Nếu mà tìm thấy thì ở này sẽ là true nếu không thì sẽ hiện một Messagebox
                     if (busThongKe.truyenThongTinHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text)){ }
                     else
                     {
@@ -236,14 +240,6 @@ namespace PetShopWinform.Forms
             }
         }
 
-        private void txtFind_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == (char)Keys.Enter)
-            {
-                pictureBox1_Click(sender, e);
-            }
-        }
-
         private void btnExcel_Click(object sender, EventArgs e)
         {
             using(SaveFileDialog saveFileDialog = new SaveFileDialog() { Filter="Excel Workbook|*.xlsx" })
@@ -260,5 +256,18 @@ namespace PetShopWinform.Forms
             FormChartDoanhThu doanhThu = new FormChartDoanhThu();
             doanhThu.Show();
         }
+        #endregion
+
+        #region key press
+        private void txtFind_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                pictureBox1_Click(sender, e);
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }

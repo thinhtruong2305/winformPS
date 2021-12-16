@@ -51,6 +51,7 @@ namespace PetShopWinform.Forms
             this.chartDoanhThu.Location = new System.Drawing.Point(12, 71);
             this.chartDoanhThu.Name = "chartDoanhThu";
             series1.ChartArea = "ChartArea1";
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             series1.Legend = "Legend1";
             series1.Name = "DoanhThu";
             series1.YValuesPerPoint = 2;
@@ -58,6 +59,7 @@ namespace PetShopWinform.Forms
             this.chartDoanhThu.Size = new System.Drawing.Size(776, 353);
             this.chartDoanhThu.TabIndex = 17;
             this.chartDoanhThu.Text = "Thống kê theo ngày";
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             title1.Name = "TitleChart";
             title1.Text = "Doanh thu";
             this.chartDoanhThu.Titles.Add(title1);
@@ -67,19 +69,21 @@ namespace PetShopWinform.Forms
             this.groupBoxDoanhThu.Controls.Add(this.radioButtonYear);
             this.groupBoxDoanhThu.Controls.Add(this.radioButtonMonth);
             this.groupBoxDoanhThu.Controls.Add(this.radioButtonDate);
+            this.groupBoxDoanhThu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxDoanhThu.Location = new System.Drawing.Point(177, 12);
             this.groupBoxDoanhThu.Name = "groupBoxDoanhThu";
             this.groupBoxDoanhThu.Size = new System.Drawing.Size(441, 53);
             this.groupBoxDoanhThu.TabIndex = 18;
             this.groupBoxDoanhThu.TabStop = false;
-            this.groupBoxDoanhThu.Text = "Thống kế doanh thu";
+            this.groupBoxDoanhThu.Text = "Thống kê doanh thu";
             // 
             // radioButtonYear
             // 
             this.radioButtonYear.AutoSize = true;
+            this.radioButtonYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonYear.Location = new System.Drawing.Point(296, 19);
             this.radioButtonYear.Name = "radioButtonYear";
-            this.radioButtonYear.Size = new System.Drawing.Size(47, 17);
+            this.radioButtonYear.Size = new System.Drawing.Size(50, 19);
             this.radioButtonYear.TabIndex = 2;
             this.radioButtonYear.TabStop = true;
             this.radioButtonYear.Text = "Year";
@@ -89,9 +93,10 @@ namespace PetShopWinform.Forms
             // radioButtonMonth
             // 
             this.radioButtonMonth.AutoSize = true;
+            this.radioButtonMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonMonth.Location = new System.Drawing.Point(178, 19);
             this.radioButtonMonth.Name = "radioButtonMonth";
-            this.radioButtonMonth.Size = new System.Drawing.Size(55, 17);
+            this.radioButtonMonth.Size = new System.Drawing.Size(60, 19);
             this.radioButtonMonth.TabIndex = 1;
             this.radioButtonMonth.TabStop = true;
             this.radioButtonMonth.Text = "Month";
@@ -101,9 +106,10 @@ namespace PetShopWinform.Forms
             // radioButtonDate
             // 
             this.radioButtonDate.AutoSize = true;
+            this.radioButtonDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioButtonDate.Location = new System.Drawing.Point(63, 19);
             this.radioButtonDate.Name = "radioButtonDate";
-            this.radioButtonDate.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonDate.Size = new System.Drawing.Size(51, 19);
             this.radioButtonDate.TabIndex = 0;
             this.radioButtonDate.TabStop = true;
             this.radioButtonDate.Text = "Date";

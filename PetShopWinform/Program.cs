@@ -16,7 +16,7 @@ namespace PetShopWinform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PetShopWinform.Forms.Statistical());
+            Application.Run(new FormMainMenu());
         }
     }
     

@@ -175,14 +175,15 @@ namespace PetShopWinform.Forms
             this.doanhThuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(658, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(658, 27);
             this.menuStrip1.TabIndex = 18;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // doanhThuToolStripMenuItem
             // 
+            this.doanhThuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
-            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             this.doanhThuToolStripMenuItem.Click += new System.EventHandler(this.doanhThuToolStripMenuItem_Click);
             // 

@@ -107,31 +107,49 @@ namespace PetShopWinform.BUS
         #endregion
 
         #region Sử dụng trên Form ChartDoanhThu
-        public void truyenThongTinDoanhThuTheoNgay(Chart chartDate, DateTime ngayBatDau, DateTime ngayKetThuc)
+        /// <summary>
+        /// Truyền thông tin và0 biểu đồ dựa trên ngày bắt đầu và ngày kết thúc
+        /// </summary>
+        /// <param name="chartDoanhThu">Biểu đồ thể hiện doanh thu</param>
+        /// <param name="ngayBatDau">Mốc bắt đầu lọc</param>
+        /// <param name="ngayKetThuc">Mốc kết thúc lọc</param>
+        public void truyenThongTinDoanhThuTheoNgay(Chart chartDoanhThu, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            chartDate.DataSource = statistical_DAO.layDanhSachDoanhThuTheoNgay(ngayBatDau, ngayKetThuc);
-            chartDate.Series["DoanhThu"].XValueMember = "Date";
-            chartDate.Series["DoanhThu"].XValueType = ChartValueType.Int32;
-            chartDate.Series["DoanhThu"].YValueMembers = "DoanhThu";
-            chartDate.Series["DoanhThu"].YValueType = ChartValueType.Int32;
+            chartDoanhThu.DataSource = statistical_DAO.layDanhSachDoanhThuTheoNgay(ngayBatDau, ngayKetThuc);
+            chartDoanhThu.Series["DoanhThu"].XValueMember = "Date";
+            chartDoanhThu.Series["DoanhThu"].XValueType = ChartValueType.Int32;
+            chartDoanhThu.Series["DoanhThu"].YValueMembers = "DoanhThu";
+            chartDoanhThu.Series["DoanhThu"].YValueType = ChartValueType.Int32;
         }
 
-        public void truyenThongtinDoanhThuTheoThang(Chart chartDate, DateTime thangBatDau, DateTime thangKetThuc)
+        /// <summary>
+        /// Truyền thông tin vào biểu đồ dựa trên ngày bắt đầu và ngày kết thúc
+        /// </summary>
+        /// <param name="chartDoanhThu">Biểu đồ hiển thị doanh thu</param>
+        /// <param name="ngayBatDau">Mốc bắt đầu để lọc</param>
+        /// <param name="ngayKetThuc">Mốc kết thúc để lọc</param>
+        public void truyenThongtinDoanhThuTheoThang(Chart chartDoanhThu, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            chartDate.DataSource = statistical_DAO.layDanhSachDoanhThuTheoThang(thangBatDau, thangKetThuc);
-            chartDate.Series["DoanhThu"].XValueMember = "Month";
-            chartDate.Series["DoanhThu"].XValueType = ChartValueType.Int32;
-            chartDate.Series["DoanhThu"].YValueMembers = "DoanhThu";
-            chartDate.Series["DoanhThu"].YValueType = ChartValueType.Int32;
+            chartDoanhThu.DataSource = statistical_DAO.layDanhSachDoanhThuTheoThang(ngayBatDau, ngayKetThuc);
+            chartDoanhThu.Series["DoanhThu"].XValueMember = "Month";
+            chartDoanhThu.Series["DoanhThu"].XValueType = ChartValueType.Int32;
+            chartDoanhThu.Series["DoanhThu"].YValueMembers = "DoanhThu";
+            chartDoanhThu.Series["DoanhThu"].YValueType = ChartValueType.Int32;
         }
 
-        public void truyenThongTinDoanhThuTheoNam(Chart chartDate, DateTime namBatDau, DateTime namKetThuc)
+        /// <summary>
+        /// Truyền thông tin vào biểu đồ dựa trên ngày bắt đầu và ngày kết thúc
+        /// </summary>
+        /// <param name="chartDoanhThu">Biểu đô hiển thị doanh thu</param>
+        /// <param name="ngayBatDau">Mốc bắt đầu để lọc</param>
+        /// <param name="ngayKetThuc">Mốc kết thúc để lọc</param>
+        public void truyenThongTinDoanhThuTheoNam(Chart chartDoanhThu, DateTime ngayBatDau, DateTime ngayKetThuc)
         {
-            chartDate.DataSource = statistical_DAO.layDanhSachDoanhThuTheoNam(namBatDau, namKetThuc);
-            chartDate.Series["DoanhThu"].XValueMember = "Year";
-            chartDate.Series["DoanhThu"].XValueType = ChartValueType.Int32;
-            chartDate.Series["DoanhThu"].YValueMembers = "DoanhThu";
-            chartDate.Series["DoanhThu"].YValueType = ChartValueType.Int32;
+            chartDoanhThu.DataSource = statistical_DAO.layDanhSachDoanhThuTheoNam(ngayBatDau, ngayKetThuc);
+            chartDoanhThu.Series["DoanhThu"].XValueMember = "Year";
+            chartDoanhThu.Series["DoanhThu"].XValueType = ChartValueType.Int32;
+            chartDoanhThu.Series["DoanhThu"].YValueMembers = "DoanhThu";
+            chartDoanhThu.Series["DoanhThu"].YValueType = ChartValueType.Int32;
         }
         #endregion
     }

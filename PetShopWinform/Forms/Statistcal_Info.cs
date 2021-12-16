@@ -45,8 +45,7 @@ namespace PetShopWinform.Forms
             this.maKhachHang = maKhachHang;
             this.ngayTao = ngayTao;
         }
-
-        //truyền và xử lý dữ liệu
+        
         private void load_data()
         {
             busThongKe.truyenThongTinKhachHangTheoMaKhachHang(textBoxMaKhachHang, textBoxTenKhachHang, textBoxDiaChi, textBoxDienThoai, checkBoxGiamGia, maKhachHang);
@@ -55,7 +54,13 @@ namespace PetShopWinform.Forms
             dateTimePickerNgayTao.Value = ngayTao;
         }
 
-        //định dạng
+        private void dinhDanhHeaderText()
+        {
+            dataGridViewDanhMucSanPham.Columns[0].HeaderText = "Mã";
+            dataGridViewDanhMucSanPham.Columns[1].HeaderText = "Tên";
+            dataGridViewDanhMucSanPham.Columns[2].HeaderText = "Số lượng";
+            dataGridViewDanhMucSanPham.Columns[3].HeaderText = "Thanh toán";
+        }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -65,6 +70,7 @@ namespace PetShopWinform.Forms
         private void Statistcal_Info_Load(object sender, EventArgs e)
         {
             load_data();
+            dinhDanhHeaderText();
         }
     }
 }

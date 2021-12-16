@@ -16,12 +16,14 @@ namespace PetShopWinform.Forms
         private Statistical_BUS busThongKe;
         private DateTime ngayBatDau = DateTime.MinValue;
         private DateTime ngayKetThuc = DateTime.MaxValue;
+
         public FormChartDoanhThu()
         {
             InitializeComponent();
             busThongKe = new Statistical_BUS();
         }
 
+        #region Sự kiện
         private void FormChartDoanhThu_Load(object sender, EventArgs e)
         {
             radioButtonYear_CheckedChanged(sender, e);
@@ -41,5 +43,6 @@ namespace PetShopWinform.Forms
         {
             busThongKe.truyenThongTinDoanhThuTheoNam(chartDoanhThu, ngayBatDau, ngayKetThuc);
         }
+        #endregion
     }
 }
