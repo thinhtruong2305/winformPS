@@ -104,6 +104,7 @@ namespace PetShopWinform
         private void btnBilling_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Billing(), sender);
+            
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)

@@ -160,6 +160,7 @@
     <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>PetShopModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Vip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThemeColor.cs" />
