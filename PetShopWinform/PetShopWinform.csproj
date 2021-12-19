@@ -76,12 +76,6 @@
     <Compile Include="Forms\Customers.Designer.cs">
       <DependentUpon>Customers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormChartDoanhThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormChartDoanhThu.Designer.cs">
-      <DependentUpon>FormChartDoanhThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormLoading.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,9 +165,6 @@
     <Compile Include="ThemeColor.cs" />
     <EmbeddedResource Include="Forms\Customers.resx">
       <DependentUpon>Customers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormChartDoanhThu.resx">
-      <DependentUpon>FormChartDoanhThu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>

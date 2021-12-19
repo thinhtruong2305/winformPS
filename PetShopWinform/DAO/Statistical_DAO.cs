@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using PetShopWinform.Model;
 using System.Windows.Forms;
 
@@ -128,6 +129,7 @@ namespace PetShopWinform.DAO
         }
         #endregion
 
+        //Cái này trong tương lai nếu có thể sẽ nghiên cứu thêm để làm. Với khả năng hiện tại thì chịu
         #region Sử dụng trên Form ChartDoanhThu
         /// <summary>
         /// Dùng để lấy thông tin về doanh thu từ tiền của các hóa đơn

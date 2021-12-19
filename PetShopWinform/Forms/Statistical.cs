@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,12 +40,22 @@ namespace PetShopWinform.Forms
             }
             label1.ForeColor = ThemeColor.SecondaryColor;
             label2.ForeColor = ThemeColor.PrimaryColor;
-            menuStrip1.ForeColor = ThemeColor.SecondaryColor;
         }
 
         private void load_data()
         {
             busThongKe.truyenThongTinHoaDon(dataGridViewBangHienThi);
+            doanhThuTongCong();
+        }
+
+        private void doanhThuTongCong()
+        {
+            double tongCong = 0;
+            for(int i = 0; i < dataGridViewBangHienThi.RowCount; i++)
+            {
+                tongCong += Convert.ToDouble(dataGridViewBangHienThi.Rows[i].Cells[3].Value);
+            }
+            textBoxTongCong.Text = String.Format(CultureInfo.CreateSpecificCulture("vi-vn"), "{0:c}", tongCong);
         }
 
         public void exportToExcel(DataGridView view, String fileInfo)
@@ -138,6 +149,10 @@ namespace PetShopWinform.Forms
             {
                 e.CellStyle.Format = "dd/MM/yyyy";
             }
+            else if (e.ColumnIndex.Equals(3))
+            {
+                e.Value = String.Format(CultureInfo.CreateSpecificCulture("vi-vn"), "{0:c}", dataGridViewBangHienThi.Rows[e.RowIndex].Cells[3].Value);
+            }
         }
         #endregion
 
@@ -149,18 +164,39 @@ namespace PetShopWinform.Forms
             LoadTheme();
             load_data();
             dinhDangHeadertext();
+
         }
         #endregion
 
         #region changed
         private void dateTimePickerFrom_ValueChanged(object sender, EventArgs e)
         {
-            busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            DateTime giaTriNgay = DateTime.Today;
+            if (dateTimePickerFrom.Value > dateTimePickerTo.Value)
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePickerFrom.Value = giaTriNgay;
+            }
+            else
+            {
+                busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+                doanhThuTongCong();
+            }
         }
 
         private void dateTimePickerTo_ValueChanged(object sender, EventArgs e)
         {
-            busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+            DateTime giaTriNgay = DateTime.Today;
+            if(dateTimePickerTo.Value < dateTimePickerFrom.Value)
+            {
+                MessageBox.Show("Không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dateTimePickerTo.Value = giaTriNgay;
+            }
+            else
+            {
+                busThongKe.truyenThongTinHoaDonTheoNgay(dataGridViewBangHienThi, dateTimePickerFrom.Value, dateTimePickerTo.Value);
+                doanhThuTongCong();
+            }
         }
 
         private void txtFind_TextChanged(object sender, EventArgs e)
@@ -225,17 +261,18 @@ namespace PetShopWinform.Forms
 
         private void dataGridViewBangHienThi_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Statistcal_Info info;
             int maKhachHang = Convert.ToInt32(dataGridViewBangHienThi.CurrentRow.Cells[4].Value);
             int maHoaDon = Convert.ToInt32(dataGridViewBangHienThi.CurrentRow.Cells[0].Value.ToString());
             DateTime ngayTao = Convert.ToDateTime(dataGridViewBangHienThi.CurrentRow.Cells[1].Value.ToString());
             if (maKhachHang.Equals(0))
             {
-                Statistcal_Info info = new Statistcal_Info(maHoaDon, ngayTao);
-                info.Show();
+                info = new Statistcal_Info(maHoaDon, ngayTao);
+                info.Show(); 
             }
             else
             {
-                Statistcal_Info info = new Statistcal_Info(maKhachHang, maHoaDon, ngayTao);
+                info = new Statistcal_Info(maKhachHang, maHoaDon, ngayTao);
                 info.Show();
             }
         }
@@ -249,12 +286,6 @@ namespace PetShopWinform.Forms
                     exportToExcel(dataGridViewBangHienThi, saveFileDialog.FileName);
                 }
             }
-        }
-
-        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormChartDoanhThu doanhThu = new FormChartDoanhThu();
-            doanhThu.Show();
         }
         #endregion
 

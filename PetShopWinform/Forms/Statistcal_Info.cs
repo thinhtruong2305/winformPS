@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,6 +53,17 @@ namespace PetShopWinform.Forms
             busThongKe.truyenThongTinSanPhamTheoMaHoaDon(dataGridViewDanhMucSanPham, maHoaDon);
             textBoxMaHoaDon.Text = maHoaDon.ToString();
             dateTimePickerNgayTao.Value = ngayTao;
+            tongTienHoaDon();
+        }
+
+        private void tongTienHoaDon()
+        {
+            double tongCong = 0;
+            for (int i = 0; i < dataGridViewDanhMucSanPham.RowCount; i++)
+            {
+                tongCong += Convert.ToDouble(dataGridViewDanhMucSanPham.Rows[i].Cells[3].Value);
+            }
+            textBoxTongTien.Text = String.Format(CultureInfo.CreateSpecificCulture("vi-vn"), "{0:c}", tongCong);
         }
 
         private void dinhDanhHeaderText()
@@ -71,6 +83,14 @@ namespace PetShopWinform.Forms
         {
             load_data();
             dinhDanhHeaderText();
+        }
+
+        private void dataGridViewDanhMucSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.ColumnIndex.Equals(3))
+            {
+                e.Value = String.Format(CultureInfo.CreateSpecificCulture("vi-vn"), "{0:c}", dataGridViewDanhMucSanPham.Rows[e.RowIndex].Cells[3].Value);
+            }
         }
     }
 }

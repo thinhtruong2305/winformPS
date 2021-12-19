@@ -47,6 +47,8 @@ namespace PetShopWinform.Forms
             this.labelNgayTao = new System.Windows.Forms.Label();
             this.labelMaHoaDon = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.textBoxTongTien = new System.Windows.Forms.TextBox();
+            this.labelTongTien = new System.Windows.Forms.Label();
             this.groupBoxCustomer.SuspendLayout();
             this.groupBoxBill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDanhMucSanPham)).BeginInit();
@@ -163,6 +165,8 @@ namespace PetShopWinform.Forms
             // 
             // groupBoxBill
             // 
+            this.groupBoxBill.Controls.Add(this.labelTongTien);
+            this.groupBoxBill.Controls.Add(this.textBoxTongTien);
             this.groupBoxBill.Controls.Add(this.dataGridViewDanhMucSanPham);
             this.groupBoxBill.Controls.Add(this.textBoxMaHoaDon);
             this.groupBoxBill.Controls.Add(this.dateTimePickerNgayTao);
@@ -173,7 +177,7 @@ namespace PetShopWinform.Forms
             this.groupBoxBill.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBill.Location = new System.Drawing.Point(0, 147);
             this.groupBoxBill.Name = "groupBoxBill";
-            this.groupBoxBill.Size = new System.Drawing.Size(534, 343);
+            this.groupBoxBill.Size = new System.Drawing.Size(534, 361);
             this.groupBoxBill.TabIndex = 1;
             this.groupBoxBill.TabStop = false;
             this.groupBoxBill.Text = "Thông tin hóa đơn";
@@ -185,6 +189,7 @@ namespace PetShopWinform.Forms
             this.dataGridViewDanhMucSanPham.Name = "dataGridViewDanhMucSanPham";
             this.dataGridViewDanhMucSanPham.Size = new System.Drawing.Size(467, 177);
             this.dataGridViewDanhMucSanPham.TabIndex = 14;
+            this.dataGridViewDanhMucSanPham.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewDanhMucSanPham_CellFormatting);
             // 
             // textBoxMaHoaDon
             // 
@@ -247,6 +252,22 @@ namespace PetShopWinform.Forms
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // textBoxTongTien
+            // 
+            this.textBoxTongTien.Location = new System.Drawing.Point(336, 330);
+            this.textBoxTongTien.Name = "textBoxTongTien";
+            this.textBoxTongTien.Size = new System.Drawing.Size(123, 20);
+            this.textBoxTongTien.TabIndex = 15;
+            // 
+            // labelTongTien
+            // 
+            this.labelTongTien.AutoSize = true;
+            this.labelTongTien.Location = new System.Drawing.Point(261, 333);
+            this.labelTongTien.Name = "labelTongTien";
+            this.labelTongTien.Size = new System.Drawing.Size(64, 15);
+            this.labelTongTien.TabIndex = 16;
+            this.labelTongTien.Text = "Tổng tiền: ";
+            // 
             // Statistcal_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +309,7 @@ namespace PetShopWinform.Forms
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxMaHoaDon;
         private System.Windows.Forms.DataGridView dataGridViewDanhMucSanPham;
+        private System.Windows.Forms.Label labelTongTien;
+        private System.Windows.Forms.TextBox textBoxTongTien;
     }
 }

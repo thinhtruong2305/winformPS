@@ -39,11 +39,10 @@ namespace PetShopWinform.Forms
             this.dataGridViewBangHienThi = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtFind = new System.Windows.Forms.TextBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBoxTongCong = new System.Windows.Forms.TextBox();
+            this.labelTongCong = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBangHienThi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dateTimePickerTo
@@ -130,12 +129,12 @@ namespace PetShopWinform.Forms
             this.dataGridViewBangHienThi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBangHienThi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBangHienThi.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridViewBangHienThi.Location = new System.Drawing.Point(0, 138);
+            this.dataGridViewBangHienThi.Location = new System.Drawing.Point(0, 155);
             this.dataGridViewBangHienThi.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridViewBangHienThi.Name = "dataGridViewBangHienThi";
             this.dataGridViewBangHienThi.RowHeadersWidth = 51;
             this.dataGridViewBangHienThi.RowTemplate.Height = 24;
-            this.dataGridViewBangHienThi.Size = new System.Drawing.Size(658, 299);
+            this.dataGridViewBangHienThi.Size = new System.Drawing.Size(658, 282);
             this.dataGridViewBangHienThi.TabIndex = 15;
             this.dataGridViewBangHienThi.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBangHienThi_CellClick);
             this.dataGridViewBangHienThi.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridViewBangHienThi_CellFormatting);
@@ -169,29 +168,31 @@ namespace PetShopWinform.Forms
             this.txtFind.TextChanged += new System.EventHandler(this.txtFind_TextChanged);
             this.txtFind.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFind_KeyPress);
             // 
-            // menuStrip1
+            // textBoxTongCong
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.doanhThuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(658, 27);
-            this.menuStrip1.TabIndex = 18;
-            this.menuStrip1.Text = "menuStrip1";
+            this.textBoxTongCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTongCong.Location = new System.Drawing.Point(112, 97);
+            this.textBoxTongCong.Name = "textBoxTongCong";
+            this.textBoxTongCong.Size = new System.Drawing.Size(127, 23);
+            this.textBoxTongCong.TabIndex = 18;
             // 
-            // doanhThuToolStripMenuItem
+            // labelTongCong
             // 
-            this.doanhThuToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
-            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(87, 23);
-            this.doanhThuToolStripMenuItem.Text = "Doanh thu";
-            this.doanhThuToolStripMenuItem.Click += new System.EventHandler(this.doanhThuToolStripMenuItem_Click);
+            this.labelTongCong.AutoSize = true;
+            this.labelTongCong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTongCong.Location = new System.Drawing.Point(37, 100);
+            this.labelTongCong.Name = "labelTongCong";
+            this.labelTongCong.Size = new System.Drawing.Size(69, 17);
+            this.labelTongCong.TabIndex = 19;
+            this.labelTongCong.Text = "Tổng thu:";
             // 
             // Statistical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 437);
+            this.Controls.Add(this.labelTongCong);
+            this.Controls.Add(this.textBoxTongCong);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtFind);
             this.Controls.Add(this.dataGridViewBangHienThi);
@@ -201,8 +202,6 @@ namespace PetShopWinform.Forms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateTimePickerTo);
             this.Controls.Add(this.dateTimePickerFrom);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Statistical";
             this.Text = "Statistical";
@@ -210,8 +209,6 @@ namespace PetShopWinform.Forms
             this.Click += new System.EventHandler(this.Statistical_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBangHienThi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +225,7 @@ namespace PetShopWinform.Forms
         private System.Windows.Forms.DataGridView dataGridViewBangHienThi;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtFind;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem doanhThuToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxTongCong;
+        private System.Windows.Forms.Label labelTongCong;
     }
 }
