@@ -36,9 +36,9 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Account" Type="int" />
-          <Property Name="Customer" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Account" Type="int" Nullable="false" />
+          <Property Name="Customer" Type="int" StoreGeneratedPattern="None" />
           <Property Name="DateCreate" Type="datetime" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
@@ -109,7 +109,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Customer">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
@@ -121,7 +121,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Oder_Account">
-          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="Oder" Type="Self.Oder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
@@ -192,8 +192,8 @@
           <Property Name="DateCreate" Type="DateTime" Precision="3" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="OrderInfoes" Relationship="Self.FK__OrderInfo__Total__32E0915F" FromRole="Oder" ToRole="OrderInfo" />
-          <Property Name="Account" Type="Int32" />
-          <Property Name="Customer" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Account" Type="Int32" Nullable="false" />
+          <Property Name="Customer" Type="Int32" annotation:StoreGeneratedPattern="None" />
           <NavigationProperty Name="Account1" Relationship="PetshopWinformModel.FK_Oder_Account" FromRole="Oder" ToRole="Account" />
           <NavigationProperty Name="Customer1" Relationship="PetshopWinformModel.FK_Customer" FromRole="Oder" ToRole="Customer" />
         </EntityType>
@@ -297,7 +297,7 @@
           </AssociationSet>
         </EntityContainer>
         <Association Name="FK_Oder_Account">
-          <End Type="PetshopWinformModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="PetshopWinformModel.Account" Role="Account" Multiplicity="1" />
           <End Type="PetshopWinformModel.Oder" Role="Oder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Account">
@@ -320,7 +320,7 @@
           <NavigationProperty Name="Oders" Relationship="PetshopWinformModel.FK_Customer" FromRole="Customer" ToRole="Oder" />
         </EntityType>
         <Association Name="FK_Customer">
-          <End Type="PetshopWinformModel.Customer" Role="Customer" Multiplicity="1" />
+          <End Type="PetshopWinformModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="PetshopWinformModel.Oder" Role="Oder" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">

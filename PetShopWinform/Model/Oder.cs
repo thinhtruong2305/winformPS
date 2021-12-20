@@ -23,8 +23,8 @@ namespace PetShopWinform.Model
         public int Id { get; set; }
         public Nullable<System.DateTime> DateCreate { get; set; }
         public string Status { get; set; }
-        public Nullable<int> Account { get; set; }
-        public int Customer { get; set; }
+        public int Account { get; set; }
+        public Nullable<int> Customer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderInfo> OrderInfoes { get; set; }

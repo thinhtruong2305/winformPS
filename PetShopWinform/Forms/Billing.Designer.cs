@@ -30,9 +30,9 @@ namespace PetShopWinform.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Billing));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnPrintBill = new System.Windows.Forms.Button();
@@ -44,7 +44,7 @@ namespace PetShopWinform.Forms
             this.lbtotal1 = new System.Windows.Forms.Label();
             this.lbtotal = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.PriceUp = new System.Windows.Forms.NumericUpDown();
             this.label21 = new System.Windows.Forms.Label();
             this.dgvCurrentOrder = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -62,34 +62,39 @@ namespace PetShopWinform.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtRole = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIdAcc = new System.Windows.Forms.TextBox();
+            this.txtNameAcc = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.cbCate = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.tabProduct = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.cbVip = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtPro = new System.Windows.Forms.TextBox();
             this.btnAcept = new System.Windows.Forms.Button();
-            this.panel8 = new System.Windows.Forms.Panel();
+            this.lbtal = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtIdPro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceUp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentOrder)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tabProduct.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
+            this.tabProduct.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -103,6 +108,7 @@ namespace PetShopWinform.Forms
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // txtSearch
             // 
@@ -142,6 +148,7 @@ namespace PetShopWinform.Forms
             this.btnClearAll.TabIndex = 4;
             this.btnClearAll.Text = "Clear All";
             this.btnClearAll.UseVisualStyleBackColor = false;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
             // 
             // panel13
             // 
@@ -165,6 +172,7 @@ namespace PetShopWinform.Forms
             this.btnSa.TabIndex = 4;
             this.btnSa.Text = "Save";
             this.btnSa.UseVisualStyleBackColor = false;
+            this.btnSa.Click += new System.EventHandler(this.btnSa_Click);
             // 
             // lbDiscount
             // 
@@ -191,6 +199,7 @@ namespace PetShopWinform.Forms
             this.btnD.TabIndex = 4;
             this.btnD.Text = "Delete";
             this.btnD.UseVisualStyleBackColor = false;
+            this.btnD.Click += new System.EventHandler(this.btnD_Click);
             // 
             // lbtotal1
             // 
@@ -231,21 +240,22 @@ namespace PetShopWinform.Forms
             this.label24.TabIndex = 0;
             this.label24.Text = "Discount";
             // 
-            // numericUpDown1
+            // PriceUp
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.numericUpDown1.Location = new System.Drawing.Point(183, 72);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(61, 26);
-            this.numericUpDown1.TabIndex = 9;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.PriceUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PriceUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PriceUp.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.PriceUp.Location = new System.Drawing.Point(212, 69);
+            this.PriceUp.Margin = new System.Windows.Forms.Padding(2);
+            this.PriceUp.Name = "PriceUp";
+            this.PriceUp.Size = new System.Drawing.Size(61, 26);
+            this.PriceUp.TabIndex = 9;
+            this.PriceUp.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
+            this.PriceUp.ValueChanged += new System.EventHandler(this.PriceUp_ValueChanged);
             // 
             // label21
             // 
@@ -262,41 +272,46 @@ namespace PetShopWinform.Forms
             // 
             // dgvCurrentOrder
             // 
+            this.dgvCurrentOrder.AllowUserToAddRows = false;
+            this.dgvCurrentOrder.AllowUserToDeleteRows = false;
             this.dgvCurrentOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCurrentOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCurrentOrder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCurrentOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCurrentOrder.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCurrentOrder.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCurrentOrder.Location = new System.Drawing.Point(19, 109);
             this.dgvCurrentOrder.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCurrentOrder.Name = "dgvCurrentOrder";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCurrentOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvCurrentOrder.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCurrentOrder.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCurrentOrder.RowHeadersWidth = 51;
             this.dgvCurrentOrder.RowTemplate.Height = 24;
             this.dgvCurrentOrder.Size = new System.Drawing.Size(344, 244);
             this.dgvCurrentOrder.TabIndex = 10;
+            this.dgvCurrentOrder.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentOrder_CellClick);
+            this.dgvCurrentOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCurrentOrder_CellClick);
             // 
             // panel2
             // 
@@ -356,7 +371,7 @@ namespace PetShopWinform.Forms
             // 
             this.txtAddress.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtAddress.Enabled = false;
-            this.txtAddress.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAddress.ForeColor = System.Drawing.Color.Red;
             this.txtAddress.Location = new System.Drawing.Point(77, 127);
             this.txtAddress.Multiline = true;
@@ -369,7 +384,7 @@ namespace PetShopWinform.Forms
             // 
             this.txtPhone.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtPhone.Enabled = false;
-            this.txtPhone.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhone.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhone.ForeColor = System.Drawing.Color.Red;
             this.txtPhone.Location = new System.Drawing.Point(77, 100);
             this.txtPhone.Multiline = true;
@@ -382,7 +397,7 @@ namespace PetShopWinform.Forms
             // 
             this.txtNameCus.BackColor = System.Drawing.SystemColors.ControlLight;
             this.txtNameCus.Enabled = false;
-            this.txtNameCus.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameCus.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNameCus.ForeColor = System.Drawing.Color.Red;
             this.txtNameCus.Location = new System.Drawing.Point(63, 66);
             this.txtNameCus.Multiline = true;
@@ -398,6 +413,7 @@ namespace PetShopWinform.Forms
             this.cbCustom.Name = "cbCustom";
             this.cbCustom.Size = new System.Drawing.Size(98, 21);
             this.cbCustom.TabIndex = 17;
+            this.cbCustom.TextChanged += new System.EventHandler(this.cbCustom_TextChanged);
             // 
             // label1
             // 
@@ -467,9 +483,10 @@ namespace PetShopWinform.Forms
             // panel5
             // 
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.textBox2);
+            this.panel5.Controls.Add(this.txtRole);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.textBox1);
+            this.panel5.Controls.Add(this.txtIdAcc);
+            this.panel5.Controls.Add(this.txtNameAcc);
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Location = new System.Drawing.Point(12, 10);
@@ -490,18 +507,18 @@ namespace PetShopWinform.Forms
             this.label7.TabIndex = 17;
             this.label7.Text = "Employee";
             // 
-            // textBox2
+            // txtRole
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.Color.Red;
-            this.textBox2.Location = new System.Drawing.Point(82, 99);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(108, 21);
-            this.textBox2.TabIndex = 18;
+            this.txtRole.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtRole.Enabled = false;
+            this.txtRole.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRole.ForeColor = System.Drawing.Color.Red;
+            this.txtRole.Location = new System.Drawing.Point(82, 99);
+            this.txtRole.Multiline = true;
+            this.txtRole.Name = "txtRole";
+            this.txtRole.ReadOnly = true;
+            this.txtRole.Size = new System.Drawing.Size(108, 21);
+            this.txtRole.TabIndex = 18;
             // 
             // label5
             // 
@@ -516,18 +533,31 @@ namespace PetShopWinform.Forms
             this.label5.TabIndex = 20;
             this.label5.Text = "Role:";
             // 
-            // textBox1
+            // txtIdAcc
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Red;
-            this.textBox1.Location = new System.Drawing.Point(63, 65);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(127, 28);
-            this.textBox1.TabIndex = 18;
+            this.txtIdAcc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtIdAcc.Enabled = false;
+            this.txtIdAcc.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdAcc.ForeColor = System.Drawing.Color.Red;
+            this.txtIdAcc.Location = new System.Drawing.Point(63, 38);
+            this.txtIdAcc.Multiline = true;
+            this.txtIdAcc.Name = "txtIdAcc";
+            this.txtIdAcc.ReadOnly = true;
+            this.txtIdAcc.Size = new System.Drawing.Size(34, 23);
+            this.txtIdAcc.TabIndex = 18;
+            // 
+            // txtNameAcc
+            // 
+            this.txtNameAcc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtNameAcc.Enabled = false;
+            this.txtNameAcc.Font = new System.Drawing.Font("Mongolian Baiti", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNameAcc.ForeColor = System.Drawing.Color.Red;
+            this.txtNameAcc.Location = new System.Drawing.Point(63, 65);
+            this.txtNameAcc.Multiline = true;
+            this.txtNameAcc.Name = "txtNameAcc";
+            this.txtNameAcc.ReadOnly = true;
+            this.txtNameAcc.Size = new System.Drawing.Size(127, 28);
+            this.txtNameAcc.TabIndex = 18;
             // 
             // label9
             // 
@@ -555,6 +585,52 @@ namespace PetShopWinform.Forms
             this.label11.TabIndex = 16;
             this.label11.Text = "Id:";
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel6.Controls.Add(this.cbCate);
+            this.panel6.Controls.Add(this.label6);
+            this.panel6.Controls.Add(this.pictureBox1);
+            this.panel6.Controls.Add(this.txtSearch);
+            this.panel6.Location = new System.Drawing.Point(433, 109);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(150, 114);
+            this.panel6.TabIndex = 14;
+            // 
+            // cbCate
+            // 
+            this.cbCate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cbCate.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCate.FormattingEnabled = true;
+            this.cbCate.Location = new System.Drawing.Point(11, 31);
+            this.cbCate.Margin = new System.Windows.Forms.Padding(2);
+            this.cbCate.Name = "cbCate";
+            this.cbCate.Size = new System.Drawing.Size(128, 34);
+            this.cbCate.TabIndex = 9;
+            this.cbCate.TextChanged += new System.EventHandler(this.cbCate_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(12, 5);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(93, 24);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Category";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.DarkGray;
+            this.panel8.Controls.Add(this.tabProduct);
+            this.panel8.Location = new System.Drawing.Point(4, 228);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(579, 302);
+            this.panel8.TabIndex = 0;
+            // 
             // tabProduct
             // 
             this.tabProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -570,6 +646,7 @@ namespace PetShopWinform.Forms
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -578,42 +655,6 @@ namespace PetShopWinform.Forms
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel6.Controls.Add(this.cbVip);
-            this.panel6.Controls.Add(this.label6);
-            this.panel6.Controls.Add(this.pictureBox1);
-            this.panel6.Controls.Add(this.txtSearch);
-            this.panel6.Location = new System.Drawing.Point(433, 109);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(150, 114);
-            this.panel6.TabIndex = 14;
-            // 
-            // cbVip
-            // 
-            this.cbVip.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbVip.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbVip.FormattingEnabled = true;
-            this.cbVip.Location = new System.Drawing.Point(11, 31);
-            this.cbVip.Margin = new System.Windows.Forms.Padding(2);
-            this.cbVip.Name = "cbVip";
-            this.cbVip.Size = new System.Drawing.Size(128, 34);
-            this.cbVip.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 5);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(93, 24);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Category";
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.Gainsboro;
@@ -621,12 +662,16 @@ namespace PetShopWinform.Forms
             this.panel7.Controls.Add(this.dgvCurrentOrder);
             this.panel7.Controls.Add(this.panel2);
             this.panel7.Controls.Add(this.btnPrintBill);
-            this.panel7.Controls.Add(this.textBox3);
+            this.panel7.Controls.Add(this.txtPrice);
+            this.panel7.Controls.Add(this.txtIdPro);
+            this.panel7.Controls.Add(this.txtPro);
             this.panel7.Controls.Add(this.btnD);
-            this.panel7.Controls.Add(this.numericUpDown1);
+            this.panel7.Controls.Add(this.PriceUp);
             this.panel7.Controls.Add(this.btnAcept);
             this.panel7.Controls.Add(this.btnSa);
+            this.panel7.Controls.Add(this.lbtal);
             this.panel7.Controls.Add(this.label12);
+            this.panel7.Controls.Add(this.label13);
             this.panel7.Controls.Add(this.label10);
             this.panel7.Controls.Add(this.label21);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
@@ -635,19 +680,83 @@ namespace PetShopWinform.Forms
             this.panel7.Size = new System.Drawing.Size(384, 534);
             this.panel7.TabIndex = 13;
             // 
-            // textBox3
+            // txtPrice
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Mongolian Baiti", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.Red;
-            this.textBox3.Location = new System.Drawing.Point(14, 72);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(111, 26);
-            this.textBox3.TabIndex = 18;
-            
+            this.txtPrice.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtPrice.Enabled = false;
+            this.txtPrice.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice.ForeColor = System.Drawing.Color.Red;
+            this.txtPrice.Location = new System.Drawing.Point(135, 69);
+            this.txtPrice.Multiline = true;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.ReadOnly = true;
+            this.txtPrice.Size = new System.Drawing.Size(72, 26);
+            this.txtPrice.TabIndex = 18;
+            // 
+            // txtPro
+            // 
+            this.txtPro.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtPro.Enabled = false;
+            this.txtPro.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPro.ForeColor = System.Drawing.Color.Red;
+            this.txtPro.Location = new System.Drawing.Point(48, 69);
+            this.txtPro.Multiline = true;
+            this.txtPro.Name = "txtPro";
+            this.txtPro.ReadOnly = true;
+            this.txtPro.Size = new System.Drawing.Size(82, 26);
+            this.txtPro.TabIndex = 18;
+            // 
+            // btnAcept
+            // 
+            this.btnAcept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAcept.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAcept.Location = new System.Drawing.Point(285, 36);
+            this.btnAcept.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAcept.Name = "btnAcept";
+            this.btnAcept.Size = new System.Drawing.Size(78, 31);
+            this.btnAcept.TabIndex = 4;
+            this.btnAcept.Text = "Accept";
+            this.btnAcept.UseVisualStyleBackColor = false;
+            this.btnAcept.Click += new System.EventHandler(this.btnAcept_Click);
+            // 
+            // lbtal
+            // 
+            this.lbtal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbtal.AutoSize = true;
+            this.lbtal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtal.ForeColor = System.Drawing.Color.Red;
+            this.lbtal.Location = new System.Drawing.Point(294, 74);
+            this.lbtal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbtal.Name = "lbtal";
+            this.lbtal.Size = new System.Drawing.Size(44, 16);
+            this.lbtal.TabIndex = 7;
+            this.lbtal.Text = "Total";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(209, 51);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 16);
+            this.label12.TabIndex = 7;
+            this.label12.Text = "Quantity";
+            // 
+            // label13
+            // 
+            this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(135, 51);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(44, 16);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "Price";
             // 
             // label10
             // 
@@ -662,39 +771,18 @@ namespace PetShopWinform.Forms
             this.label10.TabIndex = 7;
             this.label10.Text = "Product";
             // 
-            // label12
+            // txtIdPro
             // 
-            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(180, 51);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 16);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Quantity";
-            // 
-            // btnAcept
-            // 
-            this.btnAcept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAcept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAcept.Location = new System.Drawing.Point(275, 69);
-            this.btnAcept.Margin = new System.Windows.Forms.Padding(2);
-            this.btnAcept.Name = "btnAcept";
-            this.btnAcept.Size = new System.Drawing.Size(83, 31);
-            this.btnAcept.TabIndex = 4;
-            this.btnAcept.Text = "Accept";
-            this.btnAcept.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.DarkGray;
-            this.panel8.Controls.Add(this.tabProduct);
-            this.panel8.Location = new System.Drawing.Point(4, 228);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(579, 302);
-            this.panel8.TabIndex = 0;
+            this.txtIdPro.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.txtIdPro.Enabled = false;
+            this.txtIdPro.Font = new System.Drawing.Font("Mongolian Baiti", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdPro.ForeColor = System.Drawing.Color.Red;
+            this.txtIdPro.Location = new System.Drawing.Point(19, 69);
+            this.txtIdPro.Multiline = true;
+            this.txtIdPro.Name = "txtIdPro";
+            this.txtIdPro.ReadOnly = true;
+            this.txtIdPro.Size = new System.Drawing.Size(23, 26);
+            this.txtIdPro.TabIndex = 18;
             // 
             // Billing
             // 
@@ -709,7 +797,7 @@ namespace PetShopWinform.Forms
             this.Text = "Billing";
             this.Load += new System.EventHandler(this.Billing_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PriceUp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCurrentOrder)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -719,12 +807,12 @@ namespace PetShopWinform.Forms
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.tabProduct.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.tabProduct.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -741,7 +829,7 @@ namespace PetShopWinform.Forms
         private System.Windows.Forms.Button btnSa;
         private System.Windows.Forms.Label lbtotal1;
         private System.Windows.Forms.Label lbDiscount;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown PriceUp;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridView dgvCurrentOrder;
         private System.Windows.Forms.Panel panel2;
@@ -762,18 +850,23 @@ namespace PetShopWinform.Forms
         private System.Windows.Forms.TextBox txtNameCus;
         private System.Windows.Forms.ComboBox cbCustom;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtRole;
+        private System.Windows.Forms.TextBox txtNameAcc;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.ComboBox cbVip;
+        private System.Windows.Forms.ComboBox cbCate;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPro;
         private System.Windows.Forms.Button btnAcept;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.TextBox txtIdAcc;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.Label lbtal;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtIdPro;
     }
 }

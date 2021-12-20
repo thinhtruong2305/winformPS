@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PetShopWinform.Model;
 namespace PetShopWinform
 {
     public partial class FormMainMenu : Form
