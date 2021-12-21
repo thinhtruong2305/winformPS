@@ -75,6 +75,7 @@ namespace PetShopWinform.Forms
                 txtAddress.Text = "";
                 txtPhone.Text = "";
                 lbDiscount.Text = "0.0";
+                sumToTal();
                 return;
             }
             Customer customer = db.Customers.SingleOrDefault(c => c.Id == id);
@@ -84,6 +85,7 @@ namespace PetShopWinform.Forms
                 txtAddress.Text = customer.Address;
                 txtPhone.Text = customer.Phone;
                 lbDiscount.Text = customer.Vip == true ? "20%" : "0.0";
+                sumToTal();
             }
             else
             {
@@ -91,6 +93,7 @@ namespace PetShopWinform.Forms
                 txtAddress.Text = "";
                 txtPhone.Text = "";
                 lbDiscount.Text = customer.Vip == true ? "20%" : "0.0";
+                sumToTal();
             }
 
         }
@@ -300,6 +303,32 @@ namespace PetShopWinform.Forms
             {
                 Console.WriteLine(e);
             }
+        }
+
+        private void btnPrintBill_Click(object sender, EventArgs e)
+        {
+            if (ItemOrders.Count() <= 0)
+            {
+                return;
+            }
+            decimal toTal;
+            if (lbDiscount.Text.Equals("20%"))
+            {
+                toTal = ItemOrders.Sum(c => c.Total) - (ItemOrders.Sum(c => c.Total) * 20 / 100);
+                using (Bill bill = new Bill(ItemOrders, txtNameCus.Text, txtPhone.Text, txtAddress.Text, DateTime.Now, toTal.ToString("#,##") + " ₫","20%"))
+                {
+                    bill.ShowDialog();
+                }
+            }
+            else
+            {
+                toTal = ItemOrders.Sum(c => c.Total);
+                using (Bill bill = new Bill(ItemOrders, txtNameCus.Text, txtPhone.Text, txtAddress.Text, DateTime.Now, toTal.ToString("#,##") + " ₫"))
+                {
+                    bill.ShowDialog();
+                }
+            }
+
         }
     }
 }

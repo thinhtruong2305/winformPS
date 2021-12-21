@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PetShopWinform.Model
 {
-    class ItemOrder
+    public class ItemOrder
     {
         private int idProduct;
         private string name;
