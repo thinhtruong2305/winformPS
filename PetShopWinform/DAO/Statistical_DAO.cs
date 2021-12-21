@@ -20,6 +20,8 @@ namespace PetShopWinform.DAO
         /// Lấy ra danh sách khách hàng từ Database
         /// dynamic là kiểu dữ liệu không thể xác định và chỉ được xác định khi chương trình được thực thi
         /// u là đối tượng không có kiểu dữ liệu cụ thể dùng để lấy các thông tin từ PetshopWinformEntities
+        /// Lưu ý: Không được chỉnh sửa u.Customer thành u.Customer.toString()
+        /// Giải thích: Vì mã khách hàng có thể null và kiểu dữ liệu là Nullable<int> nên để toString() là sai
         /// </summary>
         /// <returns>danh sách cần để hiển thị cho Form statistical</returns>
         public dynamic layDanhSachHoaDon()
@@ -30,8 +32,8 @@ namespace PetShopWinform.DAO
                                 Id = u.Id,
                                 Date = u.DateCreate,
                                 Status = u.Status,
-                                Total = u.OrderInfoes.Select(c => c.Total).Sum()>0? u.OrderInfoes.Select(c => c.Total).Sum() : 0,
-                                Costumer = u.Customer.ToString()
+                                Total = u.OrderInfoes.Select(c => c.Total).Sum(),
+                                Customer = u.Customer
                             }).ToList();
             return danhSach;
         }
@@ -40,6 +42,8 @@ namespace PetShopWinform.DAO
         /// Dùng để lọc danh sách theo ngày đã chỉ định từ ngày bắt đầu đến ngày kết thúc
         /// dynamic là kiểu dữ liệu không thể xác định và chỉ được xác định khi chương trình được thực thi
         /// u là đối tượng không có kiểu dữ liệu cụ thể dùng để lấy các thông tin từ PetshopWinformEntities
+        /// Lưu ý: Không được chỉnh sửa u.Customer thành u.Customer.toString()
+        /// Giải thích: Vì mã khách hàng có thể null và kiểu dữ liệu là Nullable<int> nên để toString() là sai
         /// </summary>
         /// <param name="ngayBatDau">Mốc bắt đầu để lọc, kiểu DateTime</param>
         /// <param name="ngayKetThuc">Mốc kết thúc để lọc, kiểu DateTime</param>
@@ -54,7 +58,7 @@ namespace PetShopWinform.DAO
                                 Date = u.DateCreate,
                                 Status = u.Status,
                                 Total = u.OrderInfoes.Select(c => c.Total).Sum(),
-                                Costumer = u.Customer.ToString()
+                                Customer = u.Customer
                             }).ToList();
             return danhSach;
         }
@@ -63,6 +67,8 @@ namespace PetShopWinform.DAO
         /// Dùng để tìm ra các hóa đơn theo tên khách hàng
         /// u là đối tượng không có kiểu dữ liệu cụ thể dùng để lấy các thông tin từ PetshopWinformEntities
         /// dynamic là kiểu dữ liệu không thể xác định và chỉ được xác định khi chương trình được thực thi
+        /// Lưu ý: Không được chỉnh sửa u.Customer thành u.Customer.toString()
+        /// Giải thích: Vì mã khách hàng có thể null và kiểu dữ liệu là Nullable<int> nên để toString() là sai
         /// </summary>
         /// <param name="tuKhoa">Dùng để tìm kiếm theo kiểu String đối chiếu với tên khách hàng</param>
         /// <returns>Danh sách đã tìm được</returns>
@@ -76,7 +82,7 @@ namespace PetShopWinform.DAO
                                 Date = u.DateCreate,
                                 Status = u.Status,
                                 Total = u.OrderInfoes.Select(c => c.Total).Sum(),
-                                Costumer = u.Customer.ToString()
+                                Customer = u.Customer
                             }).ToList();
             return danhSach;
         }
@@ -85,6 +91,8 @@ namespace PetShopWinform.DAO
         /// Dùng để tìm ra các hóa đơn theo mã hóa đơn
         /// u là đối tượng không có kiểu dữ liệu cụ thể dùng để lấy các thông tin từ PetshopWinformEntities
         /// dynamic là kiểu dữ liệu không thể xác định và chỉ được xác định khi chương trình được thực thi
+        /// Lưu ý: Không được chỉnh sửa u.Customer thành u.Customer.toString()
+        /// Giải thích: Vì mã khách hàng có thể null và kiểu dữ liệu là Nullable<int> nên để toString() là sai
         /// </summary>
         /// <param name="tuKhoa">Dùng để tìm kiếm theo kiểu int đối chiếu với mã hóa đơn</param>
         /// <returns>Danh sách đã tìm được</returns>
@@ -98,7 +106,7 @@ namespace PetShopWinform.DAO
                                 Date = u.DateCreate,
                                 Status = u.Status,
                                 Total = u.OrderInfoes.Select(c => c.Total).Sum(),
-                                Costumer = u.Customer.ToString()
+                                Customer = u.Customer
                             }).ToList();
             return danhSach;
         }

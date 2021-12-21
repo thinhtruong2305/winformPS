@@ -74,6 +74,20 @@ namespace PetShopWinform.Forms
             dataGridViewDanhMucSanPham.Columns[3].HeaderText = "Thanh toán";
         }
 
+        private void dinhDangDoRongCot()
+        {
+            dataGridViewDanhMucSanPham.Columns[0].Width = (int)(dataGridViewDanhMucSanPham.Width * 0.21);
+            dataGridViewDanhMucSanPham.Columns[1].Width = (int)(dataGridViewDanhMucSanPham.Width * 0.25);
+            dataGridViewDanhMucSanPham.Columns[2].Width = (int)(dataGridViewDanhMucSanPham.Width * 0.21);
+            dataGridViewDanhMucSanPham.Columns[3].Width = (int)(dataGridViewDanhMucSanPham.Width * 0.24);
+        }
+
+        private void dinhDangBang()
+        {
+            dinhDangDoRongCot();
+            dinhDanhHeaderText();
+        }
+
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -82,7 +96,7 @@ namespace PetShopWinform.Forms
         private void Statistcal_Info_Load(object sender, EventArgs e)
         {
             load_data();
-            dinhDanhHeaderText();
+            dinhDangBang();
         }
 
         private void dataGridViewDanhMucSanPham_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
