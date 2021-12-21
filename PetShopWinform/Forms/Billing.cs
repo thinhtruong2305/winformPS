@@ -221,13 +221,20 @@ namespace PetShopWinform.Forms
 
         private void dgvCurrentOrder_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int id = Convert.ToInt32(dgvCurrentOrder.Rows[e.RowIndex].Cells[4].Value);
-            ItemOrder itemOrder = ItemOrders.SingleOrDefault(c => c.IdProduct == id);
-            txtIdPro.Text = itemOrder.IdProduct.ToString();
-            txtPro.Text = itemOrder.Name;
-            txtPrice.Text = itemOrder.Price.ToString();
-            PriceUp.Value = itemOrder.Quantity;
-            lbtal.Text = (Convert.ToDecimal(txtPrice.Text) * Convert.ToInt32(PriceUp.Value)).ToString("#,##") + " ₫";
+            try
+            {
+                int id = Convert.ToInt32(dgvCurrentOrder.Rows[e.RowIndex].Cells[4].Value);
+                ItemOrder itemOrder = ItemOrders.SingleOrDefault(c => c.IdProduct == id);
+                txtIdPro.Text = itemOrder.IdProduct.ToString();
+                txtPro.Text = itemOrder.Name;
+                txtPrice.Text = itemOrder.Price.ToString();
+                PriceUp.Value = itemOrder.Quantity;
+                lbtal.Text = (Convert.ToDecimal(txtPrice.Text) * Convert.ToInt32(PriceUp.Value)).ToString("#,##") + " ₫";
+            }
+            catch (Exception)
+            {
+
+            }
         }
 
         private void btnClearAll_Click(object sender, EventArgs e)
@@ -315,7 +322,7 @@ namespace PetShopWinform.Forms
             if (lbDiscount.Text.Equals("20%"))
             {
                 toTal = ItemOrders.Sum(c => c.Total) - (ItemOrders.Sum(c => c.Total) * 20 / 100);
-                using (Bill bill = new Bill(ItemOrders, txtNameCus.Text, txtPhone.Text, txtAddress.Text, DateTime.Now, toTal.ToString("#,##") + " ₫","20%"))
+                using (Bill bill = new Bill(ItemOrders, txtNameCus.Text, txtPhone.Text, txtAddress.Text, DateTime.Now, toTal.ToString("#,##") + " ₫", "20%"))
                 {
                     bill.ShowDialog();
                 }
