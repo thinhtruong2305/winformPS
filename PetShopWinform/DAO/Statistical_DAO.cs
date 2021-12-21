@@ -30,7 +30,7 @@ namespace PetShopWinform.DAO
                                 Id = u.Id,
                                 Date = u.DateCreate,
                                 Status = u.Status,
-                                Total = u.OrderInfoes.Select(c => c.Total).Sum(),
+                                Total = u.OrderInfoes.Select(c => c.Total).Sum()>0? u.OrderInfoes.Select(c => c.Total).Sum() : 0,
                                 Costumer = u.Customer.ToString()
                             }).ToList();
             return danhSach;

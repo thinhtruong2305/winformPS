@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using PetShopWinform.Model;
 namespace PetShopWinform
 {
     public partial class FormMainMenu : Form
@@ -104,6 +104,7 @@ namespace PetShopWinform
         private void btnBilling_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.Billing(), sender);
+            
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
