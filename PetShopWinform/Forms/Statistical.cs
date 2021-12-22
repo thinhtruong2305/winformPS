@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PetShopWinform.BUS;
+using PetShopWinform.Forms;
 using App = Microsoft.Office.Interop.Excel.Application;
 using Microsoft.Office.Interop.Excel;
 
@@ -214,7 +215,7 @@ namespace PetShopWinform.Forms
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            load_data();
+            Statistical_Load(sender, e);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -228,7 +229,11 @@ namespace PetShopWinform.Forms
                 if (c >= 48 && c <= 57)
                 {
                     //Nếu mà tìm thấy thì ở này sẽ là true nếu không thì sẽ hiện một Messagebox
-                    if (busThongKe.truyenThongTinHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text))){ }
+                    if (busThongKe.truyenThongTinHoaDonTheoMaHoaDon(dataGridViewBangHienThi, Convert.ToInt32(txtFind.Text)))
+                    {
+                        txtFind.Enabled = false;
+                        txtFind.Enabled = true;
+                    }
                     else
                     {
                         MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -237,7 +242,11 @@ namespace PetShopWinform.Forms
                 else
                 {
                     //Nếu mà tìm thấy thì ở này sẽ là true nếu không thì sẽ hiện một Messagebox
-                    if (busThongKe.truyenThongTinHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text)){ }
+                    if (busThongKe.truyenThongTinHoaDonTheoTen(dataGridViewBangHienThi, txtFind.Text))
+                    {
+                        txtFind.Enabled = false;
+                        txtFind.Enabled = true;
+                    }
                     else
                     {
                         MessageBox.Show("Xin lỗi! Chúng tôi không tìm thấy dữ liệu phù hợp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -265,7 +274,7 @@ namespace PetShopWinform.Forms
             int maKhachHang = Convert.ToInt32(dataGridViewBangHienThi.CurrentRow.Cells[4].Value);
             int maHoaDon = Convert.ToInt32(dataGridViewBangHienThi.CurrentRow.Cells[0].Value.ToString());
             DateTime ngayTao = Convert.ToDateTime(dataGridViewBangHienThi.CurrentRow.Cells[1].Value.ToString());
-            if (maKhachHang.Equals(0))
+            if (maKhachHang.Equals(null))
             {
                 info = new Statistcal_Info(maHoaDon, ngayTao);
                 info.Show(); 
@@ -300,5 +309,7 @@ namespace PetShopWinform.Forms
         #endregion
 
         #endregion
+
+
     }
 }
