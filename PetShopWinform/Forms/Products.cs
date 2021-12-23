@@ -137,7 +137,30 @@ namespace PetShopWinform.Forms
                
                 int id = Convert.ToInt32(dgvProductList.CurrentRow.Cells[0].Value);
                 Product pr = db.Products.Where(x => x.Id == id).First();
-
+                IEnumerable<OrderInfo> orderInfos = db.OrderInfoes.Where(c => c.IdProduct == pr.Id).ToList();
+                List<Oder> oders = new List<Oder>();
+                foreach (OrderInfo item in orderInfos)
+                {
+                    Oder oder = db.Oders.SingleOrDefault(c => c.Id == item.IdOrder);
+                    if (oders.SingleOrDefault(c => c.Id == oder.Id) == null)
+                    {
+                        oders.Add(oder);
+                    }
+                    db.OrderInfoes.Remove(item);
+                    db.SaveChanges();
+                }
+                IEnumerable<Oder> oders1 = oders;
+                foreach (Oder item in oders1)
+                {
+                    IEnumerable<OrderInfo> orderInfos1 = db.OrderInfoes.Where(c => c.IdOrder == item.Id).ToList();
+                    foreach(OrderInfo item1 in orderInfos1)
+                    {
+                        db.OrderInfoes.Remove(item1);
+                        db.SaveChanges();
+                    }
+                    db.Oders.Remove(item);
+                    db.SaveChanges();
+                }
                 db.Products.Remove(pr);
                 
                 db.SaveChanges();
